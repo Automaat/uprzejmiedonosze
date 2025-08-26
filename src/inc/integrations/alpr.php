@@ -57,19 +57,15 @@ function _use_openAlpr(&$imageBytes): bool {
     $user = \user\current();
 
     if(!$user->hasApps()) {
-        logger('use OpenAlpr if this is User first app');
+        logger('use OpenAlpr if this is User first app', true);
         return true;
     }
 
     if($user->isPatron()) {
-        logger('use OpenAlpr for Patrons');
+        logger('use OpenAlpr for Patrons', true);
         return true;
     }
 
-    if(floor(log10(random_int(1, $budgetConsumed+1))) == 0) {
-        logger("use OpenAlpr budgetConsumed $budgetConsumed%");
-        return true;
-    }
-    logger("use plateRec budgetConsumed $budgetConsumed%");
+    logger("use plateRec budgetConsumed $budgetConsumed%", true);
     return false;
 }
