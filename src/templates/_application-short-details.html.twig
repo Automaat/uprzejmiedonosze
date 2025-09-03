@@ -126,7 +126,7 @@
     {% if app.wasSent %}
         <div class="external-id no-icon">NUMER SPRAWY SM/Policji
             <p>
-                <input class="app-field-editable" name="externalId" data-initial-value="{{ app.externalId }}" type="text" placeholder="RSOW 0000/24 / WP 000/24" value="{{ app.externalId }}">
+                <input class="app-field-editable" name="externalId" data-initial-value="{{ app.externalId }}" type="text" placeholder="RSOW 0000/24 / WP 000/24" value="{{ app.externalId }}" autocomplete="off">
             </p>
         </div>
     {% endif %}
