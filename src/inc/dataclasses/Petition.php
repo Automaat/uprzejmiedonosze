@@ -65,7 +65,7 @@ class Petition extends \JSONObject {
             if (!isset($TOPICS[$topicId])) continue;
             
             $topic = $TOPICS[$topicId];
-            $topicsStr .= "\n\n## {$topic['title']}\n{$topic['desc']}\n\n";
+            $topicsStr .= "\n\n## {$topic['title']}\n\n{$topic['desc']}\n\n";
             
             if (!empty($topic['topics'])) {
                 $topicsStr .= "  - " . implode("\n  - ", $topic['topics']);
@@ -80,7 +80,7 @@ class Petition extends \JSONObject {
 
         
         $targetTitle = $TARGETS[$this->target]['title'] ?? $this->target;
-        $intro = $this->formType !== 'email' ? "\n\n# Pozostałe\n\nMożesz użyć także tych materiałów:\n\n{$INTRO}" : "";
+        $intro = $this->formType !== 'email' ? "# Pozostałe\n\nMożesz użyć także tych materiałów:\n\n{$INTRO}" : "";
 
         $formText = $FORMS[$this->formType] ?? $this->formType;
         $this->contentPrompt = <<<EOD

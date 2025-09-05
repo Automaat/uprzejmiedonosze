@@ -193,6 +193,24 @@ $TARGETS = [
     ]
 ];
 
+$INTRO = <<<EOD
+Jednym z podmiotów, który zauważa to, jak powszechnym problemem jest nieprawidłowe parkowanie w polskich miastach, jest Naczelna Izba Kontroli. W swoim raporcie „Wyboista droga do ograniczenia ruchu samochodowego w miastach” z 18 grudnia 2024 pisze:
+
+„Do problemów wskazywanych jako najistotniejsze należały: parkowanie samochodów na chodnikach i w niewyznaczonych do tego miejscach, zakorkowane miejskie drogi, brak spójnej i bezpiecznej sieci dróg rowerowych, brak sprawnej i dostępnej komunikacji miejskiej, niedoświetlone przejścia dla pieszych, hałas i zanieczyszczenie powietrza”
+
+Trudno przeoczyć także „Założenia ustawy o przestrzeni” z 22 grudnia 2024 roku opracowane przez Rzecznika Praw Obywatelskich. W dokumencie autorzy postulują między innymi (s. 40):
+d. należy umożliwić odholowanie każdego pojazdu zaparkowanego niezgodnie z przepisami wraz z otwarciem (na określonych zasadach) dostępu do usług holowniczych.
+Rzecznik odnosił się także do tej sprawy w swoim piśmie V.511.229.2024.TS 4 czerwca 2024 roku:
+
+„Z tego też względu, pełna realizacja podstawowego celu, któremu ma służyć droga dla pieszych, powinna być zagwarantowana przez odpowiednie działania władz państwowych (w tym działania prawotwórcze) i nie może doznawać uszczerbku kosztem innych funkcji, które pełni ta droga, w tym w wyniku nieprawidłowego postoju pojazdów samochodowych”
+
+Nie można zignorować także kilkuset głosów obywateli, którzy wzięli udział w konsultacjach poselskiego projektu ustawy o zmianie ustawy o drogach publicznych (SH-020-287/24):
+
+  - „Zobligowanie samorządów do ogłoszenia przetargów, wyznaczenia miejsc i możliwość odholowania przez lawetę auta zaparkowanego na zieleńcu czy na chodniku nie zostawiając 1,5 metra. Koszty odholowania i parkingu pokrywa sprawca”
+  - „Jestem za rozwiązaniem, które sprawi, aby parkowanie było możliwe jedynie w strefach do tego wyznaczonych (np. liniami i kolorami jak w Barcelonie), natomiast stawanie poza wyznaczonymi strefami powinno być surowo karane — wprowadzenie ogólnokrajowego mandatu o min. wysokości 500 zł za parkowanie w miejscu do tego nie przeznaczonym, do tego holowanie i poniesienie kosztów holowania i parkingu”
+  - „Biorąc pod uwagę skalę zjawiska, jakim jest »samochodoza« i »patoparkowanie« niezbędne są dalsze działania w tym kierunku jak np. zwiększanie ilości możliwych działań podejmowanych przez straże miejskie i policję, podniesienie wysokości mandatów lub kar administracyjnych za wykroczenia oraz zwiększenie ich ściągalności, upowszechnienie odholowywania źle zaparkowanych pojazdów czy szeroko zakrojone zmiany w infrastrukturze drogowej i obowiązującym prawie”
+EOD;
+
 $MODEL_PRICING = [
     'gpt-5-nano' => ['prompt' => 0.05, 'completion' => 0.40],
     'gpt-5-mini' => ['prompt' => 0.25, 'completion' => 2.00],
