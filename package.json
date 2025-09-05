@@ -1,7 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": "18.x.x"
+    "node": "20.x.x"
   },
   "engineStrict": true,
   "browserslist": "> 0.5%, last 2 versions, not dead",
@@ -28,12 +28,12 @@
     "@parcel/transformer-inline-string": "^2.15.4",
     "@parcel/transformer-sass": "^2.15.4",
     "@parcel/transformer-webmanifest": "^2.15.4",
-    "@sentry/cli": "^2.52.0",
+    "@sentry/cli": "^2.53.0",
     "@types/cypress": "^1.1.6",
     "@types/jest": "^30.0.0",
     "@types/jquery": "^3.5.33",
     "@types/jquerymobile": "^1.4.35",
-    "cypress": "^15.0.0",
+    "cypress": "^15.1.0",
     "cypress-fail-fast": "^7.1.1",
     "eslint": "^9.34.0",
     "eslint-config-defaults": "^9.0.0",
@@ -44,7 +44,7 @@
     "node-sass": "^9.0.0",
     "parcel": "^2.15.4",
     "process": "^0.11.10",
-    "sass": "^1.91.0",
+    "sass": "^1.92.0",
     "sharp": "^0.33.5",
     "svgo": "^4.0.0"
   },
