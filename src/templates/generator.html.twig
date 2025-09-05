@@ -235,7 +235,6 @@
                     
         // Clear previous output
         output.textContent = '';
-        status.textContent = 'Generowanie pisma...';
         
         try {
             // Build URL with query parameters
@@ -245,6 +244,37 @@
             params.append('target', target);
             
             btn.classList.add('disabled')
+            
+            // Add time fillers for the countdown
+            const timeFillers = [
+                'Rozpoczynam generowanie...',
+                'Czytam Miejską Agendę Parkingową...',
+                'Czytam Przepisy o Ruchu Drogowym...',
+                'Szukam absurdalnych przykładów dla urozmaicenia pisma...',
+                'Sprawdzam co w temacie ma do powiedzenia NIK...',
+                'Czytam decyzję NSA z 2018 roku...',
+                'Patrzę na możliwe rozwiązania...'
+            ].sort(() => Math.random() - 0.5);
+            
+            let countdown = 40;
+            let countdownInterval;
+            
+            // Start countdown
+            const startCountdown = () => {
+                countdownInterval = setInterval(() => {
+                    if (countdown <= 0) {
+                        clearInterval(countdownInterval);
+                        return;
+                    }
+                    countdown--;
+                    const filler = timeFillers[Math.floor(timeFillers.length * (countdown / 40))];
+                    status.textContent = `${filler} (${countdown}s)`;
+                }, 1000);
+            };
+            
+            // Start the countdown
+            startCountdown();
+            
             const response = await fetch(`/generator/stream?${params.toString()}`, {
                 method: 'GET',
                 headers: {
@@ -257,6 +287,9 @@
                 const error = await response.text();
                 throw new Error(error);
             }
+            
+            // Clear the countdown when we start reading
+            if (countdownInterval) clearInterval(countdownInterval);
             
             // Process the stream as text
             const reader = response.body.getReader();
