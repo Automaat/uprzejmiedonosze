@@ -55,7 +55,7 @@ export function bindSoftCommentValidation() {
       // @ts-ignore
       const witnessChecked = document.getElementById('witness')?.checked
       if (witnessChecked) return
-      const driver = comment.search(/(?:^|[^A-Za-z0-9_])kieruj\w*/i) >= 0
+      const driver = comment.search(/(?:^|[^A-Za-z0-9_])kier\w*/i) >= 0
       let warningMsg = null
       if (driver)
         warningMsg = 'Wspominasz kierowcę w komentarzu.'
