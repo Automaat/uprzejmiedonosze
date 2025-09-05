@@ -110,8 +110,9 @@ shadow-sequential: $(DIRS) exportserver
 prod: HOST := $(PROD_HOST)
 prod: check-branch-main check-git-clean cypress clean $(DIRS) exportserver ## Copy files to prod server
 	@echo "==> Copying files and dirs for $@"
-	@git tag --force -a "prod_$(TAG_NAME)" -m "release na produkcji"
+	@git tag --force -a "prod_$(TAG_NAME)" -m "prod-release"
 	@git push origin --quiet --force "prod_$(TAG_NAME)"
+	$(sentry-inject)
 	@$(RSYNC) $(RSYNC_FLAGS) $(EXPORT)/* $(HOSTING):/var/www/$(HOST)/webapp
 	@$(RSYNC) $(RSYNC_FLAGS) vendor $(HOSTING):/var/www/$(HOST)/
 	$(sentry-release)
@@ -120,8 +121,9 @@ prod: check-branch-main check-git-clean cypress clean $(DIRS) exportserver ## Co
 quickfix:  HOST := $(PROD_HOST)
 quickfix: check-branch-main check-git-clean diff-from-last-prod confirmation clean npm-install $(DIRS) exportserver ## Quickfix on production
 	@echo "==> Copying files and dirs for $@"
-	@git tag --force -a "prod_$(TAG_NAME)" -m "quickfix na produkcji"
+	@git tag --force -a "prod_$(TAG_NAME)" -m "prod-quickfix"
 	@git push origin --quiet --force "prod_$(TAG_NAME)"
+	$(sentry-inject)
 	@$(RSYNC) $(RSYNC_FLAGS) $(EXPORT)/* $(HOSTING):/var/www/$(HOST)/webapp
 	@$(RSYNC) $(RSYNC_FLAGS) vendor $(HOSTING):/var/www/$(HOST)/
 	$(sentry-release)
@@ -355,7 +357,12 @@ endef
 define sentry-release
 @SENTRY_ORG=uprzejmie-donosze SENTRY_PROJECT=ud-js ./node_modules/.bin/sentry-cli releases new "prod_$(TAG_NAME)" --finalize
 @SENTRY_ORG=uprzejmie-donosze SENTRY_PROJECT=ud-php ./node_modules/.bin/sentry-cli releases new "prod_$(TAG_NAME)" --finalize
-@SENTRY_ORG=uprzejmie-donosze SENTRY_PROJECT=ud-js ./node_modules/.bin/sentry-cli releases files "prod_$(TAG_NAME)" upload-sourcemaps export/public/js src/js/jquery-1.12.4.min.map
+
+@./node_modules/.bin/sentry-cli sourcemaps upload --org uprzejmie-donosze --project ud-js ./export/public/js
+endef
+
+define sentry-inject
+@./node_modules/.bin/sentry-cli sourcemaps inject --org uprzejmie-donosze --project ud-js ./export/public/js
 endef
 
 define echo-processing
