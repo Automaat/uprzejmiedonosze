@@ -2,7 +2,7 @@
 Cypress.Commands.add("login", () => {
   cy.session('user' + Date.now(), () => {
     cy.setCookie('PHPSESSID', '48msfr815nd7f6ujomebqdpil9jueuq0') // dev -> docker
-    cy.setCookie('UDSESSIONID', 'nmm9cpm8nm85gmeookcd2p8c4p3h9ecbsaa07qk9') // staging
+    cy.setCookie('UDSESSIONID', 'sdotjgd9tkh1osjado1bo04256q6moeulhv6uafh') // staging
   }, {
     cacheAcrossSpecs: true
   })

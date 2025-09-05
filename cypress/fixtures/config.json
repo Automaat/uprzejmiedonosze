@@ -14,12 +14,13 @@
         "url": "../../tests/img_p.jpg",
         "plateId": "KWA00913",
         "dateISO": "2025-02-02T19:48",
-        "dateHuman": "2.02.2025 o godzinie 19:48",
-        "dateOnConfirmation": "1948 niedziela, 2 lutego 2025",
+        "dateHuman": "5.06.2025 o godzinie 19:48",
+        "dateOnConfirmation": "1948 czwartek, 5 czerwca 2025",
 
-        "dateInput": "020220252222",
-        "dateISOAltered": "2025-02-02T22:22",
-        "dateHumanAltered": "2.02.2025 o godzinie 22:22"
+        "dateInput": "050620252222",
+        "dateISOAltered": "2025-06-05T22:22",
+        "dateHumanAltered": "5.06.2025 o godzinie 22:22",
+        "dateHumanAltered2": "2222 czwartek, 5 czerwca 2025"
     },
     "wrongImage": {
         "url": "../../tests/img_e.jpg"
