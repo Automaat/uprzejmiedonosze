@@ -37,10 +37,10 @@ async function sendApplication(/** @type {string} */ appId) {
   } catch (e) {
     error(e.message)
     $whatNext.hide()
-    $afterSend.text('Błąd: ' + e.message).show().addClass('error')
     Sentry.captureException(e, {
       extra: e.message
     })
+    $afterSend.text('Błąd: ' + e.message).show().addClass('error')
     // @ts-ignore
     if (typeof ga == 'function')
       // @ts-ignore
