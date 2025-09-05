@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class ApiAiHandler extends \AbstractHandler {
-    private string $model = 'gpt-5-nano';
+    private string $model = 'gpt-5-mini';
     private string $project = 'proj_bZw0xOrleo011MupIRBw4pQC';
 
     protected function jsonResponse(Response $response, $data = null, int $status = 200): Response {
