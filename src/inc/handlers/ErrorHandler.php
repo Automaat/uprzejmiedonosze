@@ -30,7 +30,7 @@ function getCustomErrorHandler(App $app): callable {
         $response = $app->getResponseFactory()->createResponse();
 
         $accept = $request->getHeaderLine('Accept');
-        if (str_contains($accept, 'application/json')) {
+        if (str_contains($accept, 'application/json') || str_contains($accept, 'text/event-stream')) {
             $payload = exceptionToErrorJson($httpException);
         } else {
             $payload = exceptionToErrorHtml($httpException);
