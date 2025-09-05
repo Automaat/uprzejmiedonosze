@@ -65,14 +65,15 @@ class Petition extends \JSONObject {
             if (!isset($TOPICS[$topicId])) continue;
             
             $topic = $TOPICS[$topicId];
-            $topicsStr .= "\n\n## {$topic['title']}\n\n{$topic['desc']}\n\n";
+            $topicDesc = trim($topic['desc']);
+            $topicsStr .= "\n\n## {$topic['title']}\n\n$topicDesc}\n\n";
             
             if (!empty($topic['topics'])) {
                 $topicsStr .= "  - " . implode("\n  - ", $topic['topics']);
             }
 
             if ($this->formType === 'proposal' && !empty($topic['law'])) {
-                $topicsStr .= "\n### Propozycja zmiany przepisów:\n{$topic['law']}";
+                $topicsStr .= "\n\n### Propozycja zmiany przepisów:\n\n{$topic['law']}";
             }
         }
 

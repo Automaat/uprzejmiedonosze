@@ -88,9 +88,9 @@
 </div>
 
 {% if isPatron %}
-<button id="generateBtn" class="button cta">Generuj pismo</button>
+<button id="generateButton" class="button cta">Generuj pismo</button>
 {% else %}
-<button id="generateBtn" class="button disabled">Generuj pismo</button>
+<button id="generateButton" class="button disabled">Generuj pismo</button>
 {% endif %}
 <div class="status" id="status">Gotowy do generowania</div>
 
@@ -188,16 +188,16 @@
     function validateTopics() {
         const selectedTopics = document.querySelectorAll('#topicsContainer input[type="checkbox"]:checked');
         const errorElement = document.getElementById('topicError');
-        const btn = document.getElementById('generateBtn');
+        const button = document.getElementById('generateButton');
         
         if (selectedTopics.length === 0 || selectedTopics.length > 3) {
             errorElement.style.display = 'block';
-            btn.classList.add('disabled')
+            button.classList.add('disabled')
             return false;
         }
         
         errorElement.style.display = 'none';
-        btn.classList.remove('disabled')
+        button.classList.remove('disabled')
         return true;
     }
     
@@ -208,8 +208,8 @@
     }
     
     // Generate button click handler
-    document.getElementById('generateBtn').addEventListener('click', async () => {
-        const btn = document.getElementById('generateBtn');
+    document.getElementById('generateButton').addEventListener('click', async () => {
+        const button = document.getElementById('generateButton');
         const output = document.getElementById('output');
         const status = document.getElementById('status');
         
@@ -243,7 +243,7 @@
             params.append('form_type', formType);
             params.append('target', target);
             
-            btn.classList.add('disabled')
+            button.classList.add('disabled')
             
             // Add time fillers for the countdown
             const timeFillers = [
@@ -350,7 +350,7 @@
                 status.textContent = `Błąd: ${error.message}`;
             }
         } finally {
-            btn.classList.remove('disabled')
+            button.classList.remove('disabled')
         }
     });
 </script>
