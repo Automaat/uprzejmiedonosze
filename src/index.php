@@ -88,10 +88,10 @@ $app->group('/api', function (RouteCollectorProxy $group) { // JSON API
     ->add(new JsonBodyParser());
 
 $app->group('/generator', function (RouteCollectorProxy $group) {        
-    $group->get('/stream', ApiAiHandler::class . ':stream');
-    $group->get('/topics', ApiAiHandler::class . ':getTopics');
-    $group->get('/form_types', ApiAiHandler::class . ':getForms');
-    $group->get('/targets', ApiAiHandler::class . ':getTargets');
+    $group->get('/stream', \generator\ApiAiHandler::class . ':stream');
+    $group->get('/topics', \generator\ApiAiHandler::class . ':getTopics');
+    $group->get('/form_types', \generator\ApiAiHandler::class . ':getForms');
+    $group->get('/targets', \generator\ApiAiHandler::class . ':getTargets');
 })  ->add(new RegisteredMiddleware())
     ->add(new JsonMiddleware())
     ->add(new JsonBodyParser());

@@ -1,13 +1,14 @@
-<?php
-declare(strict_types=1);
+<?php namespace generator;
+
 require_once(__DIR__ . '/AbstractHandler.php');
 require_once(__DIR__ . '/../data.php');
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class ApiAiHandler extends AbstractHandler {
+class ApiAiHandler extends \AbstractHandler {
     private string $model = 'gpt-5-nano';
+    private string $project = 'proj_bZw0xOrleo011MupIRBw4pQC';
 
     protected function jsonResponse(Response $response, $data = null, int $status = 200): Response {
         $payload = [
@@ -31,7 +32,6 @@ class ApiAiHandler extends AbstractHandler {
         } else {
             $data = $request->getParsedBody();
         }
-        logger($data, true);
         
         // Validate input
         $required = ['topics', 'form_type', 'target'];
@@ -59,22 +59,20 @@ class ApiAiHandler extends AbstractHandler {
         }
 
         try {
-            list($systemPrompt, $contentPrompt) = $this->getPrompt(
-                (array)$data['topics'],
-                $data['form_type'],
-                $data['target'],
-                $user->data->name,
-                $user->data->address
-            );
+            $topics = (array)$data['topics'];
+            $formType = $data['form_type'];
+            $target = $data['target'];
+            $name = $user->data->name;
+            $city = $user->data->address;
 
+            $petition = Petition::withData($topics, $formType, $target, $name, $city);
             
-            // Ustawienie nagłówków dla długotrwałego połączenia
-            header('X-Accel-Buffering: no');
-            header('Cache-Control: no-cache');
-            header('Connection: keep-alive');
-            header('Keep-Alive: timeout=300, max=1000');
+            list($systemPrompt, $contentPrompt) = $this->getPrompt($petition);
+
+            $petition->setPrompts($systemPrompt, $contentPrompt);
             
-            $client = OpenAI::client(OPENAI_API_KEY);
+            
+            $client = \OpenAI::client(apiKey: OPENAI_API_KEY, project: $this->project);
             
             $stream = $client->chat()->createStreamed([
                 'model' => $this->model,
@@ -85,20 +83,13 @@ class ApiAiHandler extends AbstractHandler {
                 'stream' => true
             ]);
 
-            // Set headers for streaming
-            $response = $response
-                ->withHeader('Content-Type', 'text/event-stream; charset=utf-8')
-                ->withHeader('Cache-Control', 'no-cache')
-                ->withHeader('X-Accel-Buffering', 'no')
-                ->withHeader('Connection', 'keep-alive');
-
             // Disable output buffering
             if (ob_get_level() > 0) {
                 ob_end_flush();
             }
             
             // Create a custom stream handler
-            $streamHandler = function() use ($stream, $response) {
+            $streamHandler = function() use ($stream, $petition, $systemPrompt, $contentPrompt) {
                 // Start output buffering
                 if (ob_get_level() > 0) {
                     ob_end_clean();
@@ -110,10 +101,13 @@ class ApiAiHandler extends AbstractHandler {
                 header('X-Accel-Buffering: no');
                 header('Connection: keep-alive');
                 
+                $completion = '';
+                
                 // Process the stream
                 foreach ($stream as $chunk) {
                     $content = $chunk->choices[0]->delta->content ?? '';
                     if (!empty($content)) {
+                        $completion .= $content;
                         echo "data: " . json_encode(['content' => $content]) . "\n\n";
                         if (ob_get_level() > 0) {
                             ob_flush();
@@ -128,8 +122,11 @@ class ApiAiHandler extends AbstractHandler {
                     ob_flush();
                 }
                 flush();
-                
-                // End the script
+
+                $price = $this->calculateEstimation($systemPrompt, $contentPrompt, $completion);
+                $petition->setGenerated($completion, $price);
+                \generator\set($petition);
+
                 exit;
             };
             
@@ -148,11 +145,11 @@ class ApiAiHandler extends AbstractHandler {
         }
     }
 
-    private function getPrompt(array $topics, string $formType, string $target, string $name, string $city): array {
+    private function getPrompt(Petition $petition): array {
         global $TOPICS, $TARGETS, $FORMS, $INTRO;
 
         $topicsStr = "";
-        foreach ($topics as $topicId) {
+        foreach ($petition->topics as $topicId) {
             if (!isset($TOPICS[$topicId])) continue;
             
             $topic = $TOPICS[$topicId];
@@ -162,17 +159,17 @@ class ApiAiHandler extends AbstractHandler {
                 $topicsStr .= "  - " . implode("\n  - ", $topic['topics']);
             }
 
-            if ($formType === 'proposal' && !empty($topic['law'])) {
+            if ($petition->formType === 'proposal' && !empty($topic['law'])) {
                 $topicsStr .= "\n### Propozycja zmiany przepisów:\n{$topic['law']}";
             }
         }
 
         $systemPrompt = "Jesteś mieszkańcem i obywatelem zirytowanym powszechnym łamaniem przepisów związanych z parkowaniem przez kierowców";
-        $targetTitle = $TARGETS[$target]['title'] ?? $target;
-        $intro = $formType !== 'email' ? "\n\n# Pozostałe\n\nMożesz użyć także tych materiałów:\n\n{$INTRO}" : "";
+        $targetTitle = $TARGETS[$petition->target]['title'] ?? $petition->target;
+        $intro = $petition->formType !== 'email' ? "\n\n# Pozostałe\n\nMożesz użyć także tych materiałów:\n\n{$INTRO}" : "";
 
-        $formText = $FORMS[$formType] ?? $formType;
-        $contentPrompt = "# Zadanie\n\nNapisz $formText do $targetTitle w sprawie wadliwych przepisów regulujących parkowanie w Polsce.\n\n# Uwagi ogólne\n\nUżywaj przykładów i propozycji podanych poniżej. Nie wymyślaj własnych propozycji.\n\nNie stosuj formatowania markdown albo ikon. Czysty tekst.\n\nPodpisz dokument jako:\n$name\n$city\n\n# Szczegóły do poruszenia\n$topicsStr\n\n$intro\n\n# Uwagi końcowe\n\n- Pisz w pierwszej osobie liczby pojedynczej.\n- Pisz w stylu oficjalnym, ale nie przesadnie formalnym.\n- Pisz krótkie i konkretne zdania.\n- Używaj akapitów i wypunktowań.\n- Używaj podtytułów do podziału na sekcje.\n- Bądź zwięzły i na temat.\n";
+        $formText = $FORMS[$petition->formType] ?? $petition->formType;
+        $contentPrompt = "# Zadanie\n\nNapisz $formText do $targetTitle w sprawie wadliwych przepisów regulujących parkowanie w Polsce.\n\n# Uwagi ogólne\n\nUżywaj przykładów i propozycji podanych poniżej. Nie wymyślaj własnych propozycji.\n\nNie stosuj formatowania markdown albo ikon. Czysty tekst.\n\nPodpisz dokument jako:\n{$petition->name}\n{$petition->city}\n\n# Szczegóły do poruszenia\n$topicsStr\n\n$intro\n\n# Uwagi końcowe\n\n- Pisz w pierwszej osobie liczby pojedynczej.\n- Pisz w stylu oficjalnym, ale nie przesadnie formalnym.\n- Pisz krótkie i konkretne zdania.\n- Używaj akapitów i wypunktowań.\n- Używaj podtytułów do podziału na sekcje.\n- Bądź zwięzły i na temat.\n";
 
         return [$systemPrompt, $contentPrompt];
     }
@@ -186,6 +183,21 @@ class ApiAiHandler extends AbstractHandler {
 
         return ($inputTokens * $pricing['prompt'] + $outputTokens * $pricing['completion']) / 1_000_000;
     }
+
+    private function calculateEstimation(string $systemPrompt, string $contentPrompt, string $response): float {
+        global $MODEL_PRICING;
+
+        function count_tokens(string $text): int {
+            return mb_strlen($text, 'UTF-8') / 3 * 2;
+        }
+
+        $pricing = $MODEL_PRICING[$this->model];
+        $inputTokens = count_tokens($systemPrompt) + count_tokens($contentPrompt);
+        $outputTokens = count_tokens($response);
+
+        return ($inputTokens * $pricing['prompt'] + $outputTokens * $pricing['completion']) / 1_000_000;
+    }
+        
 
     /**
      * Get available topics
