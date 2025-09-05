@@ -4,6 +4,18 @@ require_once(__DIR__ . '/JSONObject.php');
 
 class Petition extends \JSONObject {
     protected const USE_ARRAY_FLOW = true;
+    public string $id;
+    public array $topics;
+    public string $formType;
+    public string $target;
+    public string $name;
+    public string $city;
+    public string $added;
+    public float $price;
+    public string $status;
+    public string $text;
+    public string $systemPrompt;
+    public string $contentPrompt;
 
     private function __construct() {
     }
@@ -40,21 +52,61 @@ class Petition extends \JSONObject {
         $this->status = 'generated';
     }
 
-    public function setPrompts(string $systemPrompt, string $contentPrompt): void {
-        $this->systemPrompt = $systemPrompt;
-        $this->contentPrompt = $contentPrompt;
+    public function generateSystemPrompt(): string {
+        $this->systemPrompt = "Jesteś mieszkańcem i obywatelem zirytowanym powszechnym łamaniem przepisów związanych z parkowaniem przez kierowców";
+        return $this->systemPrompt;
     }
 
-    public string $id;
-    public array $topics;
-    public string $formType;
-    public string $target;
-    public string $name;
-    public string $city;
-    public string $added;
-    public float $price;
-    public string $status;
-    public string $text;
-    public string $systemPrompt;
-    public string $contentPrompt;
+    public function generateContentPrompt(): string {
+        global $TOPICS, $TARGETS, $FORMS, $INTRO;
+
+        $topicsStr = "";
+        foreach ($this->topics as $topicId) {
+            if (!isset($TOPICS[$topicId])) continue;
+            
+            $topic = $TOPICS[$topicId];
+            $topicsStr .= "\n\n## {$topic['title']}\n{$topic['desc']}\n\n";
+            
+            if (!empty($topic['topics'])) {
+                $topicsStr .= "  - " . implode("\n  - ", $topic['topics']);
+            }
+
+            if ($this->formType === 'proposal' && !empty($topic['law'])) {
+                $topicsStr .= "\n### Propozycja zmiany przepisów:\n{$topic['law']}";
+            }
+        }
+
+        $topicsStr = trim($topicsStr);
+
+        
+        $targetTitle = $TARGETS[$this->target]['title'] ?? $this->target;
+        $intro = $this->formType !== 'email' ? "\n\n# Pozostałe\n\nMożesz użyć także tych materiałów:\n\n{$INTRO}" : "";
+
+        $formText = $FORMS[$this->formType] ?? $this->formType;
+        $this->contentPrompt = <<<EOD
+# Zadanie
+
+Napisz $formText do $targetTitle w sprawie wadliwych przepisów regulujących parkowanie w Polsce.
+
+# Uwagi ogólne
+
+1. Używaj przykładów i propozycji podanych poniżej. Nie wymyślaj własnych propozycji.
+2. Nie stosuj formatowania markdown albo ikon. Czysty tekst.
+3. Pisz w pierwszej osobie liczby pojedynczej.
+4. Pisz w stylu oficjalnym, ale nie przesadnie formalnym.
+5. Nie pisz adresata w mailu (np. "Szanowny $targetTitle"). Sam go dopiszę.
+6. Napisz tytuł wiadomości w pierszej linijce, w formacie "Temat: ...". Potem pusta linia o treść pisma.
+7. Podpisz dokument jako:
+{$this->name}
+{$this->city}
+
+# Szczegóły do poruszenia
+
+$topicsStr
+
+$intro
+EOD;
+
+        return $this->contentPrompt;
+    }
 }

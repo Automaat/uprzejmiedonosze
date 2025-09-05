@@ -19,6 +19,14 @@ class ApiAiHandler extends \AbstractHandler {
         return $this->renderJson($response, $payload, $status);
     }
 
+    private function printAndFlush(string $text): void {
+        echo "data: $text\n\n";
+        if (ob_get_level() > 0) {
+            ob_flush();
+        }
+        flush();
+    }
+
 
     public function stream(Request $request, Response $response, array $args): Response {
         // Get data from either POST body or GET parameters
@@ -67,10 +75,9 @@ class ApiAiHandler extends \AbstractHandler {
 
             $petition = Petition::withData($topics, $formType, $target, $name, $city);
             
-            list($systemPrompt, $contentPrompt) = $this->getPrompt($petition);
-
-            $petition->setPrompts($systemPrompt, $contentPrompt);
-            
+            $systemPrompt = $petition->generateSystemPrompt();
+            $contentPrompt = $petition->generateContentPrompt();
+            \generator\set($petition);
             
             $client = \OpenAI::client(apiKey: OPENAI_API_KEY, project: $this->project);
             
@@ -89,7 +96,8 @@ class ApiAiHandler extends \AbstractHandler {
             }
             
             // Create a custom stream handler
-            $streamHandler = function() use ($stream, $petition, $systemPrompt, $contentPrompt) {
+            $streamHandler = function() use ($stream, $petition, $systemPrompt, $contentPrompt, $target) {
+                global $TARGETS;
                 // Start output buffering
                 if (ob_get_level() > 0) {
                     ob_end_clean();
@@ -103,25 +111,18 @@ class ApiAiHandler extends \AbstractHandler {
                 
                 $completion = '';
                 
+                #$this->printAndFlush($TARGETS[$target]['formal']);
                 // Process the stream
                 foreach ($stream as $chunk) {
                     $content = $chunk->choices[0]->delta->content ?? '';
                     if (!empty($content)) {
                         $completion .= $content;
-                        echo "data: " . json_encode(['content' => $content]) . "\n\n";
-                        if (ob_get_level() > 0) {
-                            ob_flush();
-                        }
-                        flush();
+                        $this->printAndFlush(json_encode(['content' => $content]));
                     }
                 }
                 
                 // Send done signal
-                echo "data: [DONE]\n\n";
-                if (ob_get_level() > 0) {
-                    ob_flush();
-                }
-                flush();
+                $this->printAndFlush('[DONE]');
 
                 $price = $this->calculateEstimation($systemPrompt, $contentPrompt, $completion);
                 $petition->setGenerated($completion, $price);
@@ -143,35 +144,6 @@ class ApiAiHandler extends \AbstractHandler {
                 'message' => $e->getMessage()
             ], 500);
         }
-    }
-
-    private function getPrompt(Petition $petition): array {
-        global $TOPICS, $TARGETS, $FORMS, $INTRO;
-
-        $topicsStr = "";
-        foreach ($petition->topics as $topicId) {
-            if (!isset($TOPICS[$topicId])) continue;
-            
-            $topic = $TOPICS[$topicId];
-            $topicsStr .= "\n\n## {$topic['title']}\n{$topic['desc']}\n";
-            
-            if (!empty($topic['topics'])) {
-                $topicsStr .= "  - " . implode("\n  - ", $topic['topics']);
-            }
-
-            if ($petition->formType === 'proposal' && !empty($topic['law'])) {
-                $topicsStr .= "\n### Propozycja zmiany przepisów:\n{$topic['law']}";
-            }
-        }
-
-        $systemPrompt = "Jesteś mieszkańcem i obywatelem zirytowanym powszechnym łamaniem przepisów związanych z parkowaniem przez kierowców";
-        $targetTitle = $TARGETS[$petition->target]['title'] ?? $petition->target;
-        $intro = $petition->formType !== 'email' ? "\n\n# Pozostałe\n\nMożesz użyć także tych materiałów:\n\n{$INTRO}" : "";
-
-        $formText = $FORMS[$petition->formType] ?? $petition->formType;
-        $contentPrompt = "# Zadanie\n\nNapisz $formText do $targetTitle w sprawie wadliwych przepisów regulujących parkowanie w Polsce.\n\n# Uwagi ogólne\n\nUżywaj przykładów i propozycji podanych poniżej. Nie wymyślaj własnych propozycji.\n\nNie stosuj formatowania markdown albo ikon. Czysty tekst.\n\nPodpisz dokument jako:\n{$petition->name}\n{$petition->city}\n\n# Szczegóły do poruszenia\n$topicsStr\n\n$intro\n\n# Uwagi końcowe\n\n- Pisz w pierwszej osobie liczby pojedynczej.\n- Pisz w stylu oficjalnym, ale nie przesadnie formalnym.\n- Pisz krótkie i konkretne zdania.\n- Używaj akapitów i wypunktowań.\n- Używaj podtytułów do podziału na sekcje.\n- Bądź zwięzły i na temat.\n";
-
-        return [$systemPrompt, $contentPrompt];
     }
 
     private function calculatePrice(object $usage): float {

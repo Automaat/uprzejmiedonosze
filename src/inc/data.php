@@ -158,31 +158,38 @@ $FORMS = [
 $TARGETS = [
     "Premier" => [
         "title" => "Premiera",
-        "forms" => ["email", "complaint", "proposal"]
+        "forms" => ["email", "complaint", "proposal"],
+        "formal" => "Szanowny Pan\nDonald Tusk\nPrezes Rady Ministrów\nAl. Ujazdowskie 1/3\n00-583 Warszawa"
     ],
     "Minister" => [
         "title" => "Ministra Infrastruktury",
-        "forms" => ["email", "complaint", "proposal"]
+        "forms" => ["email", "complaint", "proposal"],
+        "formal" => "Szanowny Pan\nDariusz Klimczak\nMinister Infrastruktury\nAl. Ujazdowskie 1/3\n00-583 Warszawa"
     ],
     "RPO" => [
         "title" => "Rzecznika Praw Obywatelskich",
-        "forms" => ["email", "complaint"]
+        "forms" => ["email", "complaint"],
+        "formal" => "Szanowny Pan\ndr hab. Marcin Wiącek\nRzecznik Praw Obywatelskich\nal. Solidarności 77\n00-090 Warszawa"
     ],
     "Posłanka/Poseł" => [
         "title" => "Posła/Posłanki",
-        "forms" => ["email", "complaint", "proposal"]
+        "forms" => ["email", "complaint", "proposal"],
+        "formal" => "Szanowny Pan/Szanowna Pani\n____ _____\nPoseł/Posłanka na Sejm\nKancelaria Sejmu\nul. Wiejska 4/6/8\n00-902 Warszawa"
     ],
     "Komisja Wniosków i Petycji" => [
         "title" => "Parlamentarnej Komisji Wniosków i Petycji",
-        "forms" => ["proposal"]
+        "forms" => ["proposal"],
+        "formal" => "Parlamentarna Komisja Wniosków i Petycji\nSejm Rzeczpospolitej Polskiej\nul. Wiejska 4/6/8\n00-902 Warszawa"
     ],
     "Prezydent(ka) miasta" => [
         "title" => "Prezydenta/Prezydentki miasta",
-        "forms" => ["email", "complaint"]
+        "forms" => ["email", "complaint"],
+        "formal" => "Szanowny Pan/Szanowna Pani\n____ _____\nPrezydent/Prezydentka miasta ___"
     ],
     "Radna(y)" => [
         "title" => "Radnego/Radnej",
-        "forms" => ["email", "complaint"]
+        "forms" => ["email", "complaint"],
+        "formal" => "Szanowny Pan/Szanowna Pani\n____ _____\nRadna/Radny miasta ___"
     ]
 ];
 
