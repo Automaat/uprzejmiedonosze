@@ -115,7 +115,7 @@ def generate_complaint_stream(topics: List[str], form_type: str, target: str, na
 
     return response_generator(), estimated_price
 
-def generate_complaint(topics: List[str], form_type: str, target: str, name:str, city:str, model:str) -> (str, float):
+def generate_complaint(topics: List[str], form_type: str, target: str, name:str, city:str, model:str) -> (str, float, float):
     system_prompt, content_prompt = __get_prompt(topics, form_type, target, name, city)
     
     response = client.chat.completions.create(
@@ -128,14 +128,25 @@ def generate_complaint(topics: List[str], form_type: str, target: str, name:str,
     
     content = response.choices[0].message.content
     
-    price = get_price(response.usage)
-    return content, price
-    
+    price = get_price(response.usage, model)
+    estimation = get_estimation(system_prompt, content_prompt, content, model)
+    return content, price, estimation
 
-def get_price(usage: Optional[Any]) -> float:
+def get_estimation(system_prompt: str, content_prompt: str, response: str, model: str) -> float:
+    def count_tokens(text: str) -> int:
+        return len(text) // 2
+    
+    input_tokens = count_tokens(system_prompt) + count_tokens(content_prompt)
+    output_tokens = count_tokens(response)
+
+    pricing = PRICES_PER_1M.get(model)
+    estimated_price = (input_tokens * pricing['prompt'] + output_tokens * pricing['completion']) / 1_000_000
+    return estimated_price
+
+def get_price(usage: Optional[Any], model: str) -> float:
     """Calculate the price based on token usage."""
     if not usage:
-        print(f"Can't estimate cost for model {MODEL} - no usage returned by API")
+        print(f"Can't estimate cost for model {model} - no usage returned by API")
         return 0.0
 
     # Handle both old and new response formats
@@ -149,9 +160,9 @@ def get_price(usage: Optional[Any]) -> float:
         print(f"Warning: Could not determine token usage from response: {usage}")
         return 0.0
 
-    pricing = PRICES_PER_1M.get(MODEL)
+    pricing = PRICES_PER_1M.get(model)
     if not pricing:
-        raise ValueError(f"Missing pricing for model {MODEL}")
+        raise ValueError(f"Missing pricing for model {model}")
 
     prompt_price = pricing.get("prompt", 0)
     completion_price = pricing.get("completion", 0)

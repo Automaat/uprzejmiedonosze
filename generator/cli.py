@@ -34,10 +34,10 @@ def main() -> None:
         for model in models:
             
             start_time = time.time()
-            response, price = batch(topics, form_type, target, name, city, model)
+            response, price, estimation = batch(topics, form_type, target, name, city, model)
             end_time = time.time()
             execution_time = end_time - start_time
-            print(f"\n{WHITE}{model}\t{execution_time:.2f} s\t{price:.4f} zł{RESET}")
+            print(f"\n{WHITE}{model}\t{execution_time:.2f} s\t{price:.4f} zł\t{estimation:.4f} zł{RESET}")
             print(wrap_long_lines(response))
             print("\n")
 
@@ -60,9 +60,9 @@ def stream(topics: List[str], form_type: str, target: str, name:str, city:str) -
     print(f"\n{WHITE}Szacowany koszt: ~{(estimated_price*4):.4f} zł{RESET}")
     return ''.join(full_response)
 
-def batch(topics: List[str], form_type: str, target: str, name:str, city:str, model:str) -> (str, float):
-    response, price = generate_complaint(topics, form_type, target, name, city, model)
-    return response, price
+def batch(topics: List[str], form_type: str, target: str, name:str, city:str, model:str) -> (str, float, float):
+    response, price, estimation = generate_complaint(topics, form_type, target, name, city, model)
+    return response, price, estimation
 
 def select_topics() -> List[str]:
     """Prompt user to select topics."""
