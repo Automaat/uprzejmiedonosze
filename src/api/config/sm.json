@@ -3620,5 +3620,13 @@
       "43-150 Bieruń"
     ],
     "email": "dyzurny@bierun.ka.policja.gov.pl"
+  },
+  "powiat niżański": {
+    "address": [
+      "Komenda Powiatowa Policji w Nisku",
+      "ul. Sandomierska 6",
+      "37-400 Nisko"
+    ],
+    "email": "nisko@rz.policja.gov.pl"
   }
 }
