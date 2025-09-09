@@ -26,7 +26,7 @@ function get(bool $useCache=true) {
     $patrons = array_merge($active, $inactive);
 
     if (count($patrons) > 0)
-        \cache\set(Type::Patronite, "", $patrons, 0, 24*60*60);
+        \cache\set(Type::Patronite, "", $patrons, 0, 6*60*60);
     return $patrons;
 }
 
@@ -52,7 +52,7 @@ function __get(PatronieStatus $status):array {
             "note" => $patron["note"],
             "active" => (($patron["status"] ?? false) == 'aktywna')
         );
-        if (!str_contains($patron["note"], "@")) continue;
+        if (!str_contains($patron["note"] ?? '', "@")) continue;
         foreach(explode(",", $patron["note"]) as $email) {
             $output[$email] = array(
                 "amount" => $patron["amount"],
