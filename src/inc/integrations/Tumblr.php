@@ -36,7 +36,9 @@ function addToGallery(\app\Application $app): \app\Application {
     $canImageBeShown = $app->canImageBeShown(whoIsWathing: null);
     $facesCount = $app->faces->count ?? 0;
     $alreadyInGallery = isset($app->addedToGallery);
-    logger("addToGallery faces:$facesCount canImageBeShown: $canImageBeShown alreadyInGallery:$alreadyInGallery", true);
+    $plateId = $app->carInfo->plateId;
+
+    logger("addToGallery plate:$plateId faces:$facesCount canImageBeShown:$canImageBeShown alreadyInGallery:$alreadyInGallery", true);
 
     if ($alreadyInGallery) return $app;
     if ($facesCount > 0) return $app;
