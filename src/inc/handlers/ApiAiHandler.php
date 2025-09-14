@@ -8,7 +8,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class ApiAiHandler extends \AbstractHandler {
     private string $model = 'gpt-5-mini';
-    private string $project = OPENAI_PROJECT;
+    private string $project = \OPENAI_PROJECT;
 
     protected function jsonResponse(Response $response, $data = null, int $status = 200): Response {
         $payload = [
@@ -195,6 +195,43 @@ class ApiAiHandler extends \AbstractHandler {
         return $this->renderJson($response, $TARGETS);
     }
 
+    private static function uniqueCities(array $districts): array {
+        $cities = [];
+        foreach ($districts as $district) {
+            $cities = array_merge($cities, $district['cities']);
+        }
+        return array_unique($cities);
+    }
+
+    private static function getUserDistrict(\user\User $user, array $districts) {
+        if (!$user) return null;
+
+        $unqueCities = self::uniqueCities($districts);
+        
+        $address = $user->data->address;
+        if ($address) {
+            $split = explode(',', $address);
+            $city = trim(end($split));
+            if (in_array($city, $unqueCities)) return $city;
+        }
+        $lastLocation = $user->getLastLocation();
+        if ($lastLocation) {
+            $latlng = explode(',', $lastLocation);
+            $geoData = \geo\Nominatim($latlng[0], $latlng[1]);
+            $address = $geoData['address'];
+            if (array_key_exists('city', $address)) {
+                $city = trim($address['city']);
+                if (in_array($city, $unqueCities)) return $city;
+            }
+
+            if (array_key_exists('municipality', $address)) {
+                $municipality = $address['municipality'];
+                if (in_array($municipality, $unqueCities)) return $municipality;
+            }
+        }
+        return null;
+    }
+
     public function getParlamentary(Request $request, Response $response, array $args): Response {
         $mps = \json\get('parlamentary.json');
         $districts = \json\get('electoral-districts.json');
@@ -202,6 +239,12 @@ class ApiAiHandler extends \AbstractHandler {
         $params = $request->getQueryParams();
         $voivodeship = $this->getParam($params, 'v', 0);
         $city = $this->getParam($params, 'c', 0);
+
+        $filterByUser = $this->getParam($params, 'u', 0);
+        $user = $request->getAttribute('user');
+        if ($filterByUser != 0 && $user) {
+            $city = self::getUserDistrict($user, $districts);
+        }
     
         foreach ($mps as $key => $mp) {
             $mps[$key]['cities'] = $districts[$mp['district']]['cities'];
