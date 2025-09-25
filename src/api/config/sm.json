@@ -3628,5 +3628,13 @@
       "37-400 Nisko"
     ],
     "email": "nisko@rz.policja.gov.pl"
+  },
+  "powiat myślenicki": {
+    "address": [
+      "Komenda Powiatowa Policji w Myślenicach",
+      "ul. Jagiellońska 1",
+      "32-400 Myślenice"
+    ],
+    "email": "dyzurni@myslenice.policja.gov.pl"
   }
 }
