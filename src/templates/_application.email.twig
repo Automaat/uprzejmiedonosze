@@ -8,7 +8,6 @@ W załączeniu znajduje się zgłoszenie oraz zdjęcia w pliku zip. Jestem {{ co
 Proszę o niezamieszczanie w protokole danych dotyczących mojego miejsca zamieszkania, nr. telefonu i adresu e-mail. Proszę o kontakt pod adresem {% if (app.user.edelivery ?? false) and (not app.guessSMData.isPolice) %}e-Doręczeń {{ app.user.edelivery }}{% else %}e-mail {{ app.email }}{% endif %}, a w szczególności niewysyłanie listów poleconych za potwierdzeniem odbioru.
 
 {% if app.guessSMData.isQuestioning %}
-
 Informuję, że zgodnie §10, punkt 11 wytycznych nr 3 Komendanta Głównego Policji z 13 lipca 2020 r. „Sporządzenie protokołu przyjęcia ustnego zawiadomienia o wykroczeniu nie jest wymagane, jeśli zawiadomienie zostało złożone na piśmie i wyczerpująco przedstawia okoliczności zdarzenia”.
 {% endif %}
 
@@ -21,4 +20,4 @@ Zgłaszający:
   {% endif %}
 {% endif %}
 
-Uwaga: Uprzejmie Donoszę nie tylko pomaga mieszkańcom w przygotowaniu poprawnego zgłoszenia, ale także stara się pomóc funkcjonariuszom Straży Miejskiej i Policji w ukaraniu sprawcy wykroczenia. Zachęcam do kontaktu z autorem (ud@uprzejmiedonosze.net) jeśli mają Państwo propozycje usprawnień ułatwiających proces wystawiania mandatu.
+Uwaga: Uprzejmie Donoszę nie tylko pomaga mieszkańcom w przygotowaniu poprawnego zgłoszenia, ale także stara się pomóc funkcjonariuszom {% if app.guessSMData.isPolice %}Policji{% else %}Straży Miejskiej{% endif %} w ukaraniu sprawcy wykroczenia. Zachęcam do zapoznania się z Miejską Agendą Parkingową, zawierającą konkretne propozycje zmiany przepisów zw. z parkowaniem: https://agendaparkingowa.pl/
