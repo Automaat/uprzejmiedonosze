@@ -3644,5 +3644,13 @@
       "19-500 Gołdap"
     ],
     "email": "straz.miejska@goldap.pl"
+  },
+  "powiat nowodworski": {
+    "address": [
+      "Komenda Powiatowa Policji w Nowym Dworze Gdańskim",
+      "ul. Kościuszki 10",
+      "82-100 Nowy Dwór Gdański"
+    ],
+    "email": "komenda.ndg@gd.policja.gov.pl"
   }
 }
