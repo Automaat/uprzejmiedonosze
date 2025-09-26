@@ -93,6 +93,7 @@ $app->group('/generator', function (RouteCollectorProxy $group) {
     $group->get('/form_types', \generator\ApiAiHandler::class . ':getForms');
     $group->get('/targets', \generator\ApiAiHandler::class . ':getTargets');
     $group->get('/parlamentary', \generator\ApiAiHandler::class . ':getParlamentary');
+    $group->get('/suggested_parlamentary', \generator\ApiAiHandler::class . ':getSuggestedParlamentary');
 })  ->add(new RegisteredMiddleware())
     ->add(new JsonMiddleware())
     ->add(new JsonBodyParser());

@@ -232,6 +232,30 @@ class ApiAiHandler extends \AbstractHandler {
         return null;
     }
 
+    public function getSuggestedParlamentary(Request $request, Response $response, array $args): Response {
+        $mps = \json\get('parlamentary.json');
+        $districts = \json\get('electoral-districts.json');
+        $user = $request->getAttribute('user');
+        $city = null;
+        if ($user) {
+            $city = self::getUserDistrict($user, $districts);
+        }
+        foreach ($mps as $key => $mp) {
+            $cities = $districts[$mp['district']]['cities'];
+
+            if (!array_key_exists('committees', $mps[$key])) { # || !array_key_exists('INF', $mps[$key]['committees'])) {
+                unset($mps[$key]);
+                continue;
+            }
+
+            $mps[$key]['nearby'] = null;
+            if ($city) 
+                $mps[$key]['nearby'] = in_array($city, $cities);
+        }
+
+        return $this->renderJson($response, $mps);   
+    }
+
     public function getParlamentary(Request $request, Response $response, array $args): Response {
         $mps = \json\get('parlamentary.json');
         $districts = \json\get('electoral-districts.json');
