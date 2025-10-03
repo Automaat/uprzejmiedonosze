@@ -64,7 +64,7 @@ function removeUser($email, $dryRun=true){
 
     $user->deleted = $time;
     $_SESSION['user_id'] = 'fake';
-    \user\save($user);
+    \user\save($user, dontDecode:true);
 
     // removing old user
     \store\delete('users', $email);
