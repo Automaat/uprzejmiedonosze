@@ -25,7 +25,11 @@ function canShareRecydywa(string $email): bool {
 }
 
 // saveUser
-function save(User $user): void {
+function save(User $user, bool $dontDecode=false): void {
+    if ($dontDecode) {
+        \store\set(TABLE, $user->getEmail(), json_encode($user));
+        return;
+    }
     if(!isset($user->number)){
         $user->number = nextNumber();
     }
