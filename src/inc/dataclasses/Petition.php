@@ -1,47 +1,50 @@
-<?PHP namespace generator;
+<?PHP
+
+namespace generator;
 
 require_once(__DIR__ . '/JSONObject.php');
 
 class Petition extends \JSONObject {
     protected const USE_ARRAY_FLOW = true;
     public string $id;
+    public string $email;
     public array $topics;
     public string $formType;
     public string $target;
-    public string $name;
-    public string $city;
     public string $added;
     public float $price;
     public string $status;
     public string $text;
     public string $systemPrompt;
     public string $contentPrompt;
+    public string $sex;
 
     private function __construct() {
     }
 
-    public static function withJson(string $json=null) {
+    public static function withJson(string $json = null) {
         $instance = new self();
         $instance->__fromJson($json);
         return $instance;
     }
 
-    public static function withData(array $topics,
+    public static function withData(
+        array $topics,
         string $formType,
-        string $target,
-        string $name,
-        string $city) {
+        string $target, 
+        \user\user $user
+    ) {
 
         $instance = new self();
 
+        $instance->email = $user->getEmail();
         $instance->id = substr(str_replace(['+', '/', '='], '', base64_encode(random_bytes(12))), 0, 12);
         $instance->added = date(DT_FORMAT);
         $instance->topics = $topics;
         $instance->formType = $formType;
         $instance->target = $target;
-        $instance->name = $name;
-        $instance->city = $city;
         $instance->status = 'draft';
+        $instance->sex = $user->guessSex()['żeńskiego'];
 
         return $instance;
     }
@@ -63,13 +66,17 @@ class Petition extends \JSONObject {
         $topicsStr = "";
         foreach ($this->topics as $topicId) {
             if (!isset($TOPICS[$topicId])) continue;
-            
+
             $topic = $TOPICS[$topicId];
             $topicDesc = trim($topic['desc']);
-            $topicsStr .= "\n\n## {$topic['title']}\n\n$topicDesc}\n\n";
-            
-            if (!empty($topic['topics'])) {
-                $topicsStr .= "  - " . implode("\n  - ", $topic['topics']);
+            $topicsStr .= "\n\n## {$topic['title']}\n\n$topicDesc\n\n";
+
+            $examples = $topic['examples'];
+            if (!empty($examples) && is_array($examples)) {
+                shuffle($examples);
+                $examples = array_slice($examples, 0, 3);
+                $topicsStr .= "Przykładowe efekty wadliwych przepisów:\n";
+                $topicsStr .= "  - " . implode("\n  - ", $examples);
             }
 
             if ($this->formType === 'proposal' && !empty($topic['law'])) {
@@ -79,7 +86,7 @@ class Petition extends \JSONObject {
 
         $topicsStr = trim($topicsStr);
 
-        
+
         $targetTitle = $TARGETS[$this->target]['title'] ?? $this->target;
         $intro = $this->formType !== 'email' ? "# Pozostałe\n\nMożesz użyć także tych materiałów:\n\n{$INTRO}" : "";
 
@@ -93,15 +100,13 @@ Napisz $formText do $targetTitle w sprawie wadliwych przepisów regulujących pa
 
 1. Używaj przykładów i propozycji podanych poniżej. Nie wymyślaj własnych propozycji.
 2. Nie stosuj formatowania markdown albo ikon. Czysty tekst.
-3. Pisz w pierwszej osobie liczby pojedynczej.
+3. Pisz w pierwszej osobie liczby pojedynczej rodzaju {$this->sex}.
 4. Pisz w stylu oficjalnym, ale nie przesadnie formalnym.
 5. Nie pisz adresata w mailu (np. "Szanowny $targetTitle"). Sam go dopiszę.
 6. Napisz tytuł wiadomości w pierszej linijce, w formacie "Temat: ...". Potem pusta linia o treść pisma.
-7. Podpisz dokument jako:
-{$this->name}
-{$this->city}
+7. Nie podpisuj tego dokumentu - sam to uzupełnię. Nie pisz także placeholdera typu [mieszkaniec] itp.
 
-# Szczegóły do poruszenia
+# Tematy do uwzględnienia
 
 $topicsStr
 

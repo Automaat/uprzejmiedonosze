@@ -2,13 +2,14 @@
 {% set rightButton = '' %}
 
 {% set redesignClass = 'rd25' %}
-{% set title = 'Generator' %}
-{% set shortTitle = 'Generator Uprzejmych Pism' %}
-{% set description = 'Wkurza Cię pato parkowanie? Przekaż swoją frustrację i napisz mail do decydentów korzystając z naszego generatora.' %}
+{% set title = 'Kreator skarg i wniosków' %}
+{% set shortTitle = 'Kreator skarg i wniosków' %}
+{% set description = 'Wkurza Cię pato parkowanie? Przekaż swoją frustrację i napisz mail do decydentów korzystając z naszego narzędzia.' %}
 {% set mainClass = 'generator' %}
 
 {% extends "base.html.twig" %}
 {% block footer %}
+<footer></footer>
 {% endblock %}
 {% block main %}
 
@@ -17,43 +18,25 @@
   <span></span>
 </header>
 
-<section id="step-0" class="active">
-  <h1>Uprzejmy generator pism</h1>
-  {% if isPatron %}
-  <h4>Narzędzie jest w fazie testowej</h4>
-  <p>Nie wysyłaj jeszcze wygenerowanych pism. Będę zobowiązany za feedback na adres <a href="mailto:szymon@uprzejmiedonosze.net">szymon@uprzejmiedonosze.net</a>.
-  Pamiętaj, że generowanie każdego wniosku kosztuje (od kilku do kilkudziesięciu groszy, w zależności od ustawień, które tuninguję).
-  Staraj się nie przekroczyć 10 prób.</p>
-  {% else %}
-  <h4>Narzędzie jest w fazie testowej dostępnej tylko dla Patronów i Patronek</h4>
-  <p>Po fazie zamkniętych testów zostanie udostępnione wszystkim użytkownikom Uprzejmie Donoszę.</p>
-  {% endif %}
+<section id="step-1" class="active">
+  <h1>Co Cię wkurza w pato parkowaniu?</h1>
+  <fieldset id="fs-topics">
+  </fieldset>
   <nav>
-      <a href='#' class="button {% if not isPatron %}disabled{% endif %}" data-action="next">Dalej</a>
+      <a href='#' class="button disabled" data-action="next">Wybierz do 3 opcji</a>
   </nav>
 </section>
 
-<section id="step-1">
-  <h1>Co Cię najbardziej wkurza w pato parkowaniu?</h1>
-  <div id="topicError">Wybierz do 3 opcji.</div>
-  <fieldset id="fs-topics">
+<section id="step-2">
+  <h1>W jakim tonie chcesz napisać?</h1>
+  <fieldset id='fs-types'>
   </fieldset>
   <nav>
       <a href='#' class="button disabled" data-action="next">Dalej</a>
   </nav>
 </section>
-
-<section id="step-2">
-  <h1>Wybierz charakter pisma</h1>
-  <p>Jakiego tonu chcesz użyć w swojej wiadomości?</p>
-  <fieldset id='fs-types'>
-  </fieldset>
-  <nav>
-      <a href='#' class="button" data-action="next">Dalej</a>
-  </nav>
-</section>
 <section id="step-3">
-  <h1>Wybierz adresata</h1>
+  <h1>Do kogo chcesz napisać?</h1>
   <fieldset id='fs-targets'>
   </fieldset>
   <nav>
@@ -62,28 +45,31 @@
 </section>
 
 <section id="step-4">
-  <h1>wybierz adresata</h1>
+  <h1>Wybierz adresata</h1>
   <fieldset id='fs-recipients'>
   </fieldset>
   <nav>
-      {% if isPatron %}
-      <a href='#' data-action="generate" class="button cta">Generuj pismo</a>
-      {% else %}
-      <a href='#' class="button cta disabled">Generuj pismo</a>
-      {% endif %}
+      <a href='#' data-action="generate" class="button cta">Dalej</a>
   </nav>
 </section>
 
 <section id="step-5">
-  <h1>Generowanie pisma</h1>
-  <div class="status" id="status">Gotowy do generowania</div>
+  <h1>Tworzenie pisma</h1>
+  <div>
+    <div class="status" id="status">Gotowy do pisania</div>
+    <div class="progress" id="progress"></div>
+  </div>
   <div id="output"></div>
-  <nav>
-      <a class="button cta" id='mailtoButton' href="#" style="display: none;">Wyślij przez domyślny klient e-mail</a>
-      <a class="button cta" id='gmailButton' href="#" target="_blank" style="display: none;"><img src="/img/gmail.png" alt='' />Wyślij przez GMail</a>
-      <br />
-      <a class="button" id='generateButton' href="#" data-action="restart">Generuj kolejne pismo</a>
+  <nav id="step-5__nav">
+      <a class="button fit-content inline light" id='mailtoButton' href="#" target="_blank" rel="external">Wyślij e-mail</a>
+      <a class="button fit-content inline light" id='gmailtoButton' href="#" target="_blank" rel="external">Wyślij przez Gmaila</a>
+      <a class="button fit-content inline light" id="copyBtn" onclick="copyToClipboard('#output')" >Skopiuj tekst</a>
+
+      <a class="button last light" id='generateButton' href="#" data-action="restart">Napisz kolejne pismo</a>
   </nav>
 </section>
+
+<script src="/js/generator.js?{{ JS_HASH }}"
+  data-user-isgmail="{{ isGmail }}"></script>
 
 {% endblock %}

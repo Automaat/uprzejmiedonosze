@@ -1,90 +1,197 @@
+.generator-landing {
+
+  ul,
+  p {
+    font-size: 120%;
+  }
+}
+
 .generator {
-    header {
-        display: flex;
-        align-items: center;
-        min-height: 2em;
+  header {
+    display: none;
+    align-items: center;
+    min-height: 2em;
+
+    &>span {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    header>a {
-        display: none;
-        cursor: pointer;
+    &>a {
+      cursor: pointer;
+    }
+  }
+
+  section {
+    display: none;
+
+    &.active {
+      display: block !important;
     }
 
-    header>span {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+    #step-5 {
+      &__nav {
+        visibility: hidden;
+      }
     }
 
-    section {
-        display: none;
-    }
+    &>fieldset {
+      margin-top: 0.5em;
 
-    section.active {
-        display: block !important;
-    }
-
-    section>fieldset {
-        margin-top: 0.5em;
-    }
-
-    section>fieldset>label {
+      &>label {
         display: flex;
         align-items: center;
         border: 1px solid #eee;
         margin-bottom: 1em;
         padding: 0.5em;
         border-radius: 0.75em;
+
+        div {
+          padding-left: 0.5em;
+        }
+
+        b {
+          font-weight: 600;
+        }
+
+        p {
+          margin: 0.2em 0;
+        }
+
+
+        &>input {
+          flex-shrink: 0;
+          margin: 0 8px 0 0;
+          align-self: center;
+          display: flex !important;
+          width: 1em;
+        }
+      }
     }
 
-    section>fieldset>label>input {
-        flex-shrink: 0;
-        margin: 0 8px 0 0;
-        align-self: center;
-        display: flex !important;
-        width: 1em;
+    &>div,
+    &>h1 {
+      text-align: center;
     }
 
-    section>div,
-    section>h1 {
-        text-align: center;
-    }
+    &>nav {
+      margin-top: 1em;
+      border-top: 1px solid #e7e7e7;
+      padding-top: 1em;
+      text-align: center;
 
-    section>nav {
-        margin-top: 1em;
-        border-top: 1px solid #e7e7e7;
-        padding-top: 1em;
-        text-align: center;
-    }
-
-    section>nav>a {
+      &>a {
         width: 85%;
         margin-top: 0.25em;
         margin-bottom: 0.25em;
+      }
     }
 
-    section>div.status {
-        margin-top: 10px;
-        font-style: italic;
-        color: #7f8c8d;
+
+    // Progress bar loader
+      .status {
+        font-size: 16px;
+        font-weight: 500;
+        color: #2c3e50;
+        margin-bottom: 12px;
+        min-height: 20px;
+      }
+
+      .progress {
+        width: 100%;
+        height: 12px;
+        background-color: #ecf0f1;
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 0%;
+          background: linear-gradient(90deg, #3498db, #2980b9);
+          border-radius: 6px;
+          transition: width 0.4s ease-out;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        &.active::before {
+          animation: progressPulse 1.5s ease-in-out infinite;
+        }
+
+        // Dla JavaScript - ustawienie szerokości przez CSS custom property
+        &[style*="--progress"] {
+          &::before {
+            width: var(--progress, 0%);
+          }
+        }
+      }
+
+    @keyframes progressPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
     }
 
-    section>div#output {
-        text-align: left;
-        font-family: 'Red Hat Display';
-        margin-top: 20px;
-        padding: 15px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        min-height: 200px;
-        background-color: white;
-        white-space: pre-wrap;
-    }
+    $paper-bg: #fbf6eb;
+    $paper-width: 760px;
+    $paper-padding: 28px 36px;
+    $paper-radius: 8px;
+    $paper-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 
-    #gmailButton>img {
-        width: 1.2em;
-        height: 1.2em;
-        margin-right: 0.5em;
-        vertical-align: middle;
+
+    &>div#output {
+      // kartka
+      width: 100%;
+      max-width: $paper-width;
+      padding: $paper-padding;
+      background-color: $paper-bg;
+      border-radius: $paper-radius;
+      box-shadow: $paper-shadow;
+      position: relative;
+      font-size: 18px;
+      color: #222;
+      line-height: 28px;
+      box-sizing: border-box;
+      overflow: hidden;
+      text-align: left;
+      white-space: pre-wrap;
+      margin-top: 20px;
+
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      transform-origin: center;
+      transform: rotate(-0.25deg);
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -12px;
+        top: 10px;
+        width: 24px;
+        height: calc(100% - 20px);
+        pointer-events: none;
+        background-image: radial-gradient(circle at 6px 6px, rgba(0, 0, 0, 0.03) 0 2px, transparent 3px);
+        opacity: 0.45;
+        transform: rotate(0.5deg);
+      }
     }
+  }
+
+  #gmailButton>img {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.5em;
+    vertical-align: middle;
+  }
 }

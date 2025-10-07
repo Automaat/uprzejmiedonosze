@@ -9,6 +9,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class ApiAiHandler extends \AbstractHandler {
+    //private string $model = 'gpt-3.5-turbo'; //'gpt-5-nano'; // 'gpt-5-mini':
     private string $model = 'gpt-5-mini';
     private string $project = \OPENAI_PROJECT;
 
@@ -60,22 +61,13 @@ class ApiAiHandler extends \AbstractHandler {
         }
 
         $user = $request->getAttribute('user');
-        $isPatron = $user->isFormerPatron() || $user->isPatron() || $user->isAdmin();
-        if (!$isPatron) {
-            return $this->jsonResponse($response, [
-                'error' => 'You must be a patron to use this feature',
-                'missing' => ['patron']
-            ], 403);
-        }
 
         try {
             $topics = (array)$data['topics'];
             $formType = $data['form_type'];
             $target = $data['target'];
-            $name = $user->data->name;
-            $city = $user->data->address;
 
-            $petition = Petition::withData($topics, $formType, $target, $name, $city);
+            $petition = Petition::withData($topics, $formType, $target, $user);
 
             $systemPrompt = $petition->generateSystemPrompt();
             $contentPrompt = $petition->generateContentPrompt();
@@ -98,9 +90,7 @@ class ApiAiHandler extends \AbstractHandler {
             }
 
             // Create a custom stream handler
-            $streamHandler = function () use ($stream, $petition, $systemPrompt, $contentPrompt, $target) {
-                global $TARGETS;
-                // Start output buffering
+            $streamHandler = function () use ($stream, $petition, $systemPrompt, $contentPrompt, $user) {
                 if (ob_get_level() > 0) {
                     ob_end_clean();
                 }
@@ -113,7 +103,6 @@ class ApiAiHandler extends \AbstractHandler {
 
                 $completion = '';
 
-                #$this->printAndFlush($TARGETS[$target]['formal']);
                 // Process the stream
                 foreach ($stream as $chunk) {
                     $content = $chunk->choices[0]->delta->content ?? '';
@@ -122,6 +111,12 @@ class ApiAiHandler extends \AbstractHandler {
                         $this->printAndFlush(json_encode(['content' => $content]));
                     }
                 }
+                $name = $user->data->name;
+                $city = $user->data->address;
+
+                $this->printAndFlush(json_encode(['content' => "\n"]));
+                $this->printAndFlush(json_encode(['content' => "\n$name"]));
+                $this->printAndFlush(json_encode(['content' => "\n$city\n"]));
 
                 // Send done signal
                 $this->printAndFlush('[DONE]');
@@ -147,7 +142,7 @@ class ApiAiHandler extends \AbstractHandler {
         }
     }
 
-    private function calculatePrice(object $usage): float {
+    private function __calculatePrice(object $usage): float {
         global $MODEL_PRICING;
 
         $pricing = $MODEL_PRICING[$this->model];

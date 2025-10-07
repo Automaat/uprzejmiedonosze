@@ -5,6 +5,7 @@ namespace generator;
 $TOPICS = [
     "1" => [
         "title" => "Nielegalne parkowanie jest tańsze, niż legalne",
+        "ext" => "Mamy nieuczciwe strefy parkowania w Polsce, przez co opłaca się parkować nielegalnie.",
         "desc" => <<<EOD
 Aktualna wykładnia przepisów o strefach płatnego parkowania powoduje zachętę ekonomiczną do łamania przepisów. Sytuacja, w której parkowanie nielegalne jest tańsze niż legalne:
 
@@ -22,10 +23,12 @@ Należy zauważyć, że zgodnie z art. 13 ustawy o drogach publicznych, w razie 
 
 Strefy Płatnego Parkowania w Polsce zaczęły powstawać w 1994 roku na bazie rozporządzenia rady ministrów. Już wtedy definiowało możliwość pobierania opłaty w strefie za „parkowanie pojazdów w wyznaczonym miejscu”. Treść tego rozporządzenia została w 2003 roku przeniesiona do ustawy o drogach publicznych. Przez następne 20 lat gminy pobierały opłaty w całym obszarze strefy, a wojewódzkie sądy administracyjne twierdziły, że „jeżeli pojazd zostanie zaparkowany na drodze publicznej, ale w miejscu nieprzeznaczonym do parkowania, to korzystający nadal ma obowiązek uiszczenia opłaty za parkowanie”. Sytuację zmieniła uchwała Naczelnego Sądu Administracyjnego z 9 października 2017 r., która jednoznacznie wskazała, że opłatę w strefie można pobierać wyłącznie na miejscach wyznaczonych znakiem pionowym i poziomym.
 EOD,
-        "topics" => [
-            "Przepisy tworzą zachęty ekonomiczne do łamania prawa.",
+        "examples" => [
+            "Przepisy tworzą zachęty ekonomiczne do nielegalnego parkowania.",
             "Nieuczciwy kierowca za tydzień parkowania na przystanku być może zapłaci 100 zł mandatu, uczciwy kierowca musi zapłacić wielokrotnie więcej.",
-            "Efektem tego jest niszczenie zieleni i infrastruktury, słupkoza oraz olbrzymia presja na straże miejskie."
+            "Wadliwe przepisy skutkują niszczeniem zieleni i infrastruktury.",
+            "Przez wadliwe przepisy poslskie miasta toną w słupkach.",
+            "Mamy w Polsce strefy nieuczciwego parkowania, w których najbardziej opłaca się parkować... poza miejscami do parkowania"
         ],
         "law" => <<<EOD
 Postuluję czytelne i sprawiedliwe rozwiązanie: stoisz na wyznaczonym miejscu – płacisz za postój w strefie. Stoisz w strefie poza miejscem wyznaczonym – płacisz opłatę dodatkową zgodnie z regulaminem. Należy zauważyć, że kontroler strefy nie musi podejmować decyzji o tym, czy pojazd stoi zgodnie z przepisami czy nie. Musi jedynie ustalić, czy znajduje się on na wyznaczonym miejscu, czy poza nim (co już obecnie należy do jego obowiązków).
@@ -38,6 +41,7 @@ EOD
 
     "2" => [
         "title" => "Przepisy pozwalające na parkowanie na chodniku",
+        "ext" => "Mamy systemowe przyzwolenie na parkowanie na chodniku a przepisy które to regulują powstały... prawie 60 lat temu.",
         "desc" => <<<EOD
 Przepisy umożliwiające parkowanie na chodniku całym pojazdem silnikowym zostały wprowadzone rozporządzeniem z 1967 r. a następnie przeniesione do przepisów ruchu drogowego w 1982 r. Ta historyczna zaszłość nie przystaje do obecnej rzeczywistości. 
 
@@ -45,10 +49,12 @@ Ten anachroniczny przepis utrwala u użytkowników dróg mylne przekonanie o mo�
 
 Przepisy sprzed półwiecza nie przystają też do obowiązujących przepisów techniczno-budowlanych, które definiują „Szerokość chodnika powinna być nie mniejsza niż 1,80 m)”.
 EOD,
-        "topics" => [
-            "szkodliwy mit o „pozostawieniu półtora metra” jako jedynym warunku prawidłowego parkowania",
-            "lasy znaków i słupków próbujących regulować chaos parkingowy",
-            "nieczytelny i niespójny stan prawny regulujący społecznie ważnie obszar"
+        "examples" => [
+            "Szkodliwy mit o „pozostawieniu półtora metra” jako jedynym warunku prawidłowego parkowania.",
+            "Lasy znaków i słupków próbujących regulować chaos parkingowy.",
+            "Nieczytelny i niespójny stan prawny regulujący społecznie ważnie obszar.",
+            "W Polsce nadal budujemy chodniko-parkingi bazując na przepisach sprzed 60 lat.",
+            "Samorządy wydają miliony na infrastrukturę dla pieszych, której nie sposób uchronić przed zniszczeniem."
         ],
         "law" => <<<EOD
 Postuluję możliwość postoju pojazdu w całości na chodniku wyłącznie w miejscach przeznaczonych (infrastrukturą lub znakami).
@@ -60,6 +66,7 @@ EOD
     ],
     "3" => [
         "title" => "Niskie mandaty za nielegalne parkowanie",
+        "ext" => "Od 22 lat nie zmieniły się stawki mandatów za parkowanie. Typowy mandat to 100 zł.",
         "desc" => <<<EOD
 Obecnie obowiązujące grzywny za wykroczenia związane z parkowaniem nie zostały zmienione od 22 lat. Mimo, że istotne części tzw. taryfikatora zostały w ostatnich latach urealnione. Zmiany te ominęły jednak pozycje związane z zatrzymaniem i postojem pojazdów. Sekcja K (zatrzymanie i postój) w aktualnie obowiązującym taryfikatorze ma identyczne stawki co sekcja tym samym tytule z 24 listopada 2003 roku.
 
@@ -67,11 +74,12 @@ Brak waloryzacji grzywien nakładanych w drodze mandatów karnych za wykroczenia
 
 Prowadzi to do szeregu absurdów, np. jazda wzdłuż chodnika podlega karze grzywny w wysokości 1 500 złotych. Natomiast parkowanie z dala od krawędzi jezdni, które wymaga jazdy wzdłuż chodnika, nadal karane jest kwotą 100 zł. Mandat za nieprawidłowe parkowanie jest niższy od opłaty dodatkowej za złamanie regulaminu parkowania w strefie płatnego parkowania. Mandat za nieprawidłowe parkowanie również jest wielokrotnie niższy niż kara finansowa za jazdę bez biletu w środku komunikacji zbiorowej (np. 550 w Katowicach oraz 400 zł w Szczecinie).
 EOD,
-        "topics" => [
-            "pensja minimalna wzrosła w tym czasie z 800 zł do 4 666 zł",
-            "kara za przejazd autobusem „na gapę” to nawet 550 zł, za nielegalne parkowanie 100 zł",
-            "mandat za rzucenie papierka na chodnik to 500 zł, porzucenie na nim auta to mandat 100 zł",
-            "przestarzały taryfikator powoduje faktyczną depenalizację patoparkowania"
+        "examples" => [
+            "Pensja minimalna wzrosła w tym czasie z 800 zł do 4 666 zł.",
+            "Kara za przejazd autobusem „na gapę” to nawet 550 zł, za nielegalne parkowanie 100 zł.",
+            "Mandat za rzucenie papierka na chodnik to 500 zł, porzucenie na nim auta to mandat 100 zł.",
+            "Przestarzały taryfikator powoduje faktyczną depenalizację patoparkowania.",
+            "Waloryzacja taryfikatora za przekraczenia prędkości spowodowała faktyczną zmianę w zachowaniu kierowców."
         ],
         "law" => <<<EOD
 Proponuję waloryzację wszystkich pozycji w sekcji K („Zatrzymanie i postój”) o 300% – czyli wyraźnie poniżej wskaźnika wzrostu pensji minimalnej. Równocześnie postuluję uzupełnienie art. 38 § 2 Kodeksu wykroczeń („Recydywa wielokrotna”) o art. 97 („Naruszenie przepisów o bezpieczeństwie lub porządku w ruchu drogowym”).
@@ -81,16 +89,18 @@ EOD
     ],
     "4" => [
         "title" => "Przyzwolenie na niszczenie zieleni przez kierowców",
+        "ext" => "Przepisy w ogóle nie definiują pojęcia zieleni lub roślinności. Niszczenie zieleni jest bezkarne.",
         "desc" => <<<EOD
 Przepisy o ruchu drogowym nie zawierają słów „zieleń” lub „trawa”. Parkowanie na trawnikach, zieleni urządzonej lub w parku nie są zabronione. Straż miejska może korzystać jedynie z kodeksu wykroczeń, który mówi jednak o „niszczeniu lub uszkadzaniu roślinności”. Zdecydowana większość straży miejskich oczekuje dowodu, że konkretna czynność parkowania doprowadziła do uszkodzenia roślinności.
 
 To jednak tylko część problemu. Konieczność korzystania z kodeksu wykroczeń uniemożliwia strażnikom miejskim założenie blokady na tak zaparkowany pojazd ani nałożenia punktów karnych. Co więcej, nie ma wtedy zastosowania art. 96/3 kodeksu wykroczeń, który umożliwia ukarania właściciela pojazdu za niewskazanie sprawcy wykroczenia.
 EOD,
-        "topics" => [   
-            "brak możliwości założenia blokady na auto sprawcy",
-            "brak możliwości przyznania punktów karnych",
-            "brak możliwości odholowania”auta",
-            "wymaga nadzwyczajnych środków i determinacji strażników miejskich, żeby nałożyć jakąkolwiek karę dla sprawców"
+        "examples" => [   
+            "Brak możliwości założenia blokady na auto kierowcy niszczącego zieleń.",
+            "Brak możliwości przyznania punktów karnych dla osób niszczących przyrodę samochodem.",
+            "Brak możliwości odholowania auta kierowcy stojącego na trawie.",
+            "Konieczne są nadzwyczajne środki i determinacja strażników miejskich, żeby nałożyć jakąkolwiek karę dla sprawców niszczenia zieleni.",
+            "Teren przeznaczony na zieleń, który zostanie zdewastowany przez kierowców całkowicie traci ochronę prawną. Zniszczony trawik staje się legalnym parkingiem."
         ],
         "law" => <<<EOD
 Najprostsze rozwiązanie, polegające na wprowadzeniu zakazu parkowania na „zieleni lub terenie przeznaczonym na zieleń” spowodowałoby w mojej ocenie masowe „utwardzanie” istniejących terenów zielonych, które do tej pory służyły jako legalne lub nielegalne miejsca postojowe.
@@ -102,7 +112,8 @@ EOD
     ],
 
     "5" => [
-        "title" => "Unikanie mandatów przez nieuczciwych kierowców (np. przez wskazywanie obcokrajowców)",
+        "title" => "Unikanie mandatów przez nieuczciwych kierowców.",
+        "ext" => "Procedura mandatowa jest absurdalnie skomplikowana. Wystawienie stuzłotowego mandatu to kilkanaście godzin pracy.",
         "desc" => <<<EOD
 W myśl kodeksu wykroczeń oraz kodeksu postępowania w sprawach o wykroczenia, sankcje nakłada się na sprawcę wykroczenia. Wymóg ten, w połączeniu z powszechnością tych wykroczeń istotnie obniża nieuchronność kary. W kodeksie postępowania w sprawach o wykroczenia nie występuje tzw. fikcja doręczenia przesyłki.
 
@@ -112,10 +123,12 @@ Problem ten jest widoczny w statystykach publikowanych przez Centrum Automatyczn
 
 Przez cały 2024 r. urządzenia do automatycznej kontroli zarejestrowały w sumie 1 162 968 wykroczeń. W tym samym czasie inspektorzy nałożyli 568 627 mandatów. To oznacza, że niecałe 49 proc. sprawców przekroczenia prędkości lub przejazdu na czerwonym świetle zostało ukaranych.
 EOD,
-        "topics" => [
-            "mniej niż połowa postępowań mandatowych kończy się mandatem",
-            "recydywiści masowo nie płącą mandatów",
-            "patent „na obcokrajowca” jest powszechnie stosowanym sposobem na uniknięcie mandatu i punktów karnych"
+        "examples" => [
+            "Mniej niż połowa postępowań mandatowych z fotoradarów kończy się mandatem. W przypadku parkowania odsetek ten jest jeszcze niższy.",
+            "Recydywiści łamania przepisów ruchu drogowego masowo nie płącą mandatów.",
+            "Patent „na obcokrajowca” jest powszechnie stosowanym sposobem na uniknięcie mandatu i punktów karnych.",
+            "Wystawienie stuzłotowego mandatu za nielegalne parkowanie wymaga kilkunastu godzin pracy strażnika miejskiego.",
+            "Procedura mandatowa jest uciążliwe dla służb i faktycznie chcących zapłacić mandat. Równocześnie pozstawia wiele furtek dla osób świadomie łamiących przepisy."
         
         ],
         "law" => <<<EOD
@@ -125,6 +138,7 @@ EOD
 
     "6" => [
         "title" => "Przepisy utrudniające holowanie nieprawidłowo zaparkowanych samochodów",
+        "ext" => "W Polsce holuje się samochody, które przeszkadzają innym samochodom.",
         "desc" => <<<EOD
 Zgodnie z przepisami o ruchu drogowym (art. 130a), pojazd jest usuwany z drogi na koszt właściciela w przypadku pozostawienia go w miejscu, gdzie jest to zabronione i utrudnia ruch lub w inny sposób zagraża bezpieczeństwu. Niestety prawo drogowe nie definiuje „zagrożenia bezpieczeństwa”. W praktyce, pojazdy są usuwane głównie w przypadku zablokowania ruchu pojazdów, a nigdy, gdy blokują ruch pieszych.
 
@@ -137,8 +151,10 @@ W obecnym stanie prawnym istnieje szereg wypadków, w których nieprawidłowo za
 Ten stan prawny funkcjonuje w ramach powszechnego zjawiska nieprawidłowego parkowania samochodów w polskich miastach oraz regulacji prawnych, które pozostają wobec tego zjawiska nieskuteczne w aspekcie szerszym niż tylko związany z holowaniem pojazdów.
 
 EOD,
-        "topics" => [
-            "przepisy nie pozwalają usuwać pojazdów z dróg pożarowych"
+        "examples" => [
+            "Przepisy nie pozwalają usuwać pojazdów z dróg pożarowych.",
+            "Słynne „betonowe auto z Łodzi” nie zostało odholowane przez łódzką SM właśnie z powodu wadliwych przepisów.",
+            "Aktywista, który postawił Skodę Felicję na tzw. placu Pięciu Rogów w Warszawie był bezkarny właśnie dlatego, że nie było żadnych podstaw do odholowania jego pojazdu."
         ],
         "law" => <<<EOD
 Proponuję, aby w ustawie prawo o ruchu drogowym art. 130a w ust. 1 pkt 1 przyjął postać:
@@ -152,9 +168,9 @@ EOD
 
 
 $FORMS = [
-    "email" => "krótki, dosadny email",
-    "complaint" => "formalną, koncentrującą się na opisie problemu skargę",
-    "proposal" => "formalny wniosek, zawierający propozycje rozwiązań prawnych"
+    "email" => "krótki, dosadny email opisujący problem",
+    "complaint" => "formalna skarga, koncentrującą się na problemie",
+    "proposal" => "formalny wniosek, zawierający także propozycje rozwiązań"
 ];
 
 $TARGETS = [
@@ -176,21 +192,21 @@ $TARGETS = [
         "formal" => "Szanowny Pan\ndr hab. Marcin Wiącek\nRzecznik Praw Obywatelskich\nal. Solidarności 77\n00-090 Warszawa",
         "recipient" => "biurorzecznika@brpo.gov.pl"
     ],
-    "Posłanka/Poseł" => [
-        "title" => "Posła/Posłanki",
-        "forms" => ["email", "complaint", "proposal"],
-        "formal" => "szanowny pan/szanowna pani\n____ _____\nposeł/posłanka na sejm\nkancelaria sejmu\nul. wiejska 4/6/8\n00-902 warszawa"
-    ],
-    #"Członek_INF" => [
-    #    "title" => "Członka Sejmowej Komisji Infrastruktury",
+    #"Posłanka/Poseł" => [
+    #    "title" => "Posła/Posłanki",
     #    "forms" => ["email", "complaint", "proposal"],
     #    "formal" => "szanowny pan/szanowna pani\n____ _____\nposeł/posłanka na sejm\nkancelaria sejmu\nul. wiejska 4/6/8\n00-902 warszawa"
     #],
-    #"Komisja_PET" => [
-    #    "title" => "Parlamentarnej Komisji Wniosków i Petycji",
-    #    "forms" => ["proposal"],
-    #    "formal" => "Parlamentarna Komisja Wniosków i Petycji\nSejm Rzeczpospolitej Polskiej\nul. Wiejska 4/6/8\n00-902 Warszawa"
-    #]#,
+    "Członek_INF" => [
+        "title" => "Członka Sejmowej Komisji Infrastruktury",
+        "forms" => ["email", "complaint", "proposal"],
+        "formal" => "szanowny pan/szanowna pani\n____ _____\nposeł/posłanka na sejm\nkancelaria sejmu\nul. wiejska 4/6/8\n00-902 warszawa"
+    ],
+    "Komisja_PET" => [
+        "title" => "Parlamentarnej Komisji Wniosków i Petycji",
+        "forms" => ["proposal"],
+        "formal" => "Parlamentarna Komisja Wniosków i Petycji\nSejm Rzeczpospolitej Polskiej\nul. Wiejska 4/6/8\n00-902 Warszawa"
+    ]#,
     #"Prezydent(ka) miasta" => [
     #    "title" => "Prezydenta/Prezydentki miasta",
     #    "forms" => ["email", "complaint"],
