@@ -4,8 +4,8 @@ namespace generator;
 
 $TOPICS = [
     "1" => [
-        "title" => "Nielegalne parkowanie jest tańsze, niż legalne",
-        "ext" => "Mamy nieuczciwe strefy parkowania w Polsce, przez co opłaca się parkować nielegalnie.",
+        "title" => "Zachęta finansowa do patoparkowania",
+        "ext" => "Legalne parkowanie w strefie płatnego parkowania jest droższe, niż patoparkowanie",
         "desc" => <<<EOD
 Aktualna wykładnia przepisów o strefach płatnego parkowania powoduje zachętę ekonomiczną do łamania przepisów. Sytuacja, w której parkowanie nielegalne jest tańsze niż legalne:
 
@@ -40,7 +40,7 @@ EOD
     ],
 
     "2" => [
-        "title" => "Przepisy pozwalające na parkowanie na chodniku",
+        "title" => "Parkowanie na chodniku",
         "ext" => "Mamy systemowe przyzwolenie na parkowanie na chodniku a przepisy które to regulują powstały... prawie 60 lat temu.",
         "desc" => <<<EOD
 Przepisy umożliwiające parkowanie na chodniku całym pojazdem silnikowym zostały wprowadzone rozporządzeniem z 1967 r. a następnie przeniesione do przepisów ruchu drogowego w 1982 r. Ta historyczna zaszłość nie przystaje do obecnej rzeczywistości. 
@@ -65,7 +65,7 @@ Wymagane jest napisanie od nowa art. 47 przepisów o ruchu drogowym, z uwzględn
 EOD
     ],
     "3" => [
-        "title" => "Niskie mandaty za nielegalne parkowanie",
+        "title" => "Niskie mandaty",
         "ext" => "Od 22 lat nie zmieniły się stawki mandatów za parkowanie. Typowy mandat to 100 zł.",
         "desc" => <<<EOD
 Obecnie obowiązujące grzywny za wykroczenia związane z parkowaniem nie zostały zmienione od 22 lat. Mimo, że istotne części tzw. taryfikatora zostały w ostatnich latach urealnione. Zmiany te ominęły jednak pozycje związane z zatrzymaniem i postojem pojazdów. Sekcja K (zatrzymanie i postój) w aktualnie obowiązującym taryfikatorze ma identyczne stawki co sekcja tym samym tytule z 24 listopada 2003 roku.
@@ -88,7 +88,7 @@ W efekcie, sankcja dla kierowcy, który dokonał wykroczenia zw. z parkowaniem j
 EOD
     ],
     "4" => [
-        "title" => "Przyzwolenie na niszczenie zieleni przez kierowców",
+        "title" => "Niszczenie zieleni",
         "ext" => "Przepisy w ogóle nie definiują pojęcia zieleni lub roślinności. Niszczenie zieleni jest bezkarne.",
         "desc" => <<<EOD
 Przepisy o ruchu drogowym nie zawierają słów „zieleń” lub „trawa”. Parkowanie na trawnikach, zieleni urządzonej lub w parku nie są zabronione. Straż miejska może korzystać jedynie z kodeksu wykroczeń, który mówi jednak o „niszczeniu lub uszkadzaniu roślinności”. Zdecydowana większość straży miejskich oczekuje dowodu, że konkretna czynność parkowania doprowadziła do uszkodzenia roślinności.
@@ -112,7 +112,7 @@ EOD
     ],
 
     "5" => [
-        "title" => "Unikanie mandatów przez nieuczciwych kierowców.",
+        "title" => "Masowe unikanie mandatów",
         "ext" => "Procedura mandatowa jest absurdalnie skomplikowana. Wystawienie stuzłotowego mandatu to kilkanaście godzin pracy.",
         "desc" => <<<EOD
 W myśl kodeksu wykroczeń oraz kodeksu postępowania w sprawach o wykroczenia, sankcje nakłada się na sprawcę wykroczenia. Wymóg ten, w połączeniu z powszechnością tych wykroczeń istotnie obniża nieuchronność kary. W kodeksie postępowania w sprawach o wykroczenia nie występuje tzw. fikcja doręczenia przesyłki.
@@ -137,8 +137,8 @@ EOD
     ],
 
     "6" => [
-        "title" => "Przepisy utrudniające holowanie nieprawidłowo zaparkowanych samochodów",
-        "ext" => "W Polsce holuje się samochody, które przeszkadzają innym samochodom.",
+        "title" => "Za mało holowania",
+        "ext" => "W Polsce holuje się tylko te samochody, które przeszkadzają innym samochodom.",
         "desc" => <<<EOD
 Zgodnie z przepisami o ruchu drogowym (art. 130a), pojazd jest usuwany z drogi na koszt właściciela w przypadku pozostawienia go w miejscu, gdzie jest to zabronione i utrudnia ruch lub w inny sposób zagraża bezpieczeństwu. Niestety prawo drogowe nie definiuje „zagrożenia bezpieczeństwa”. W praktyce, pojazdy są usuwane głównie w przypadku zablokowania ruchu pojazdów, a nigdy, gdy blokują ruch pieszych.
 
