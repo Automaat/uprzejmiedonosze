@@ -239,7 +239,7 @@ class ApplicationHandler extends AbstractHandler {
         $params = $request->getQueryParams();
 
         $query = $this->getParam($params, 'q', '');
-        $applications = \user\apps(user: $user); //, search: $query);
+        $applications = \user\apps(user: $user, limit:7000); //, search: $query);
 
         $countChanged = 0;
 
