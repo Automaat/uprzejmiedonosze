@@ -214,6 +214,18 @@ class ApiAiHandler extends \AbstractHandler {
         }
     }
 
+    private static function getUserVoivodeship(\user\User $user) {
+        if (!$user) return null;
+        $lastLocation = $user->getLastLocation();
+        if (!$lastLocation) return null;
+        $latlng = explode(',', $lastLocation);
+        $geoData = \geo\Nominatim($latlng[0], $latlng[1]);
+        $address = $geoData['address'];
+        if (array_key_exists('voivodeship', $address))
+            return trim($address['voivodeship']);
+        return null;
+    }
+
     private static function getUserDistrict(\user\User $user, array $districts) {
         if (!$user) return null;
 
@@ -250,6 +262,7 @@ class ApiAiHandler extends \AbstractHandler {
         $city = null;
         if ($user) {
             $city = self::getUserDistrict($user, $districts);
+            $voivodeship = self::getUserVoivodeship($user);
         }
         foreach ($mps as $key => $mp) {
             $cities = $districts[$mp['district']]['cities'];
@@ -259,9 +272,12 @@ class ApiAiHandler extends \AbstractHandler {
                 continue;
             }
 
-            $mps[$key]['nearby'] = null;
+            $mps[$key]['district_match'] = null;
             if ($city)
-                $mps[$key]['nearby'] = in_array($city, $cities);
+                $mps[$key]['district_match'] = in_array($city, $cities);
+            $mps[$key]['vovoideship_match'] = null;
+            if ($voivodeship)
+                $mps[$key]['vovoideship_match'] = $districts[$mp['district']]['voivodeship'] == $voivodeship;
             $mps[$key]['name'] = $this->changeNameOrder($key);
             $mps[$key]['sex'] = \user\User::_guessSex($mps[$key]['name']);
 
