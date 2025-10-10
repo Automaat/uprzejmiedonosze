@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     } catch (error) {
         console.error('Error initializing data:', error);
-        alert('Wystąpił błąd podczas ładowania danych. Odśwież stronę i spróbuj ponownie.');
+        errorToast('Wystąpił błąd podczas ładowania danych. Odśwież stronę i spróbuj ponownie.');
     }
 });
 
@@ -198,12 +198,12 @@ const renderTargets = () => {
     // Filter targets that support the selected form type and have recipient defined
     const availableTargets = Object.entries(targetsData)
         .filter(([_, target]) => target.forms.includes(formType))
-        .filter(([_, target]) => target.recipient)   // @FIXME implement proper recipient selection in separate for those cases
-        .sort((a, b) => a[1].title.localeCompare(b[1].title));
+        .filter(([_, target]) => target.email || target.form)   // @FIXME implement proper recipient selection in separate for those cases
+        .sort(() => Math.random() - 0.5);
 
     container.innerHTML = availableTargets.map(([id, target]) => `
             <label>
-              <input type="radio" name="target" data-recipient="${target.recipient || ''}" onchange="window.checkRecipient()" value="${id}">
+              <input type="radio" name="target" data-recipient="${target.email || target.form}" onchange="window.checkRecipient()" value="${id}">
               ${target.title}
             </label>
         `).join('');
@@ -416,7 +416,7 @@ async function generate() {
                         });
                     }
                 } catch (e) {
-                    console.error('Error parsing event:', e);
+                    errorToast('Error parsing event: ' + e);
                 }
             }
         }
@@ -427,7 +427,7 @@ async function generate() {
         progressBar?.style.setProperty('display', 'none')
 
         
-        populateEmailLinks();
+        populateDeliveryLinks();
 
     } catch (error) {
         console.error(error)
@@ -447,33 +447,42 @@ async function generate() {
     }
 };
 
-function populateEmailLinks() {
+function populateDeliveryLinks() {
     const mailtoButton = /** @type {HTMLAnchorElement} */ (document?.getElementById('mailtoButton'))
     const gmailtoButton = /** @type {HTMLAnchorElement} */ (document?.getElementById('gmailtoButton'))
+    const formButton = /** @type {HTMLAnchorElement} */ (document?.getElementById('openFormButton'))
     if (!mailtoButton || !gmailtoButton)
-        return console.error('Missing mailtoButton or gmailtoButton')
-
+        return errorToast('Missing mailtoButton or gmailtoButton')
 
     const selectedTarget = /** @type {HTMLInputElement} */ (document.querySelector('input[name="target"]:checked'))
     const recipient = selectedTarget?.dataset?.recipient;
     if (!recipient)
-        return console.error('Missing recipient')
+        return errorToast('Missing recipient')
 
     const content = document?.getElementById('output')?.textContent;
     if (!content)
-        return console.error('Missing content')
+        return errorToast('Missing content')
 
     const searchForSubject = /Temat: (.*)/.exec(content)
     const subject = searchForSubject?.pop() || 'Pismo w sprawie przepisów związanych z parkowaniem'
 
-    const loggedInToGmail = currentScript?.getAttribute("data-user-isgmail") == '1'
-    if (loggedInToGmail) {
-        gmailtoButton.classList.add('cta')
+    if (recipient.search('@') > 0) {
+        formButton?.style.setProperty('display', 'none')
+
+        const loggedInToGmail = currentScript?.getAttribute("data-user-isgmail") == '1'
+        if (loggedInToGmail) {
+            gmailtoButton.classList.add('cta')
+        } else {
+            mailtoButton.classList.add('cta')
+        }
+        mailtoButton.href = getEmailUrl(recipient, subject, content)
+        gmailtoButton.href = getGmailUrl(recipient, subject, content)
     } else {
-        mailtoButton.classList.add('cta')
+        mailtoButton?.style.setProperty('display', 'none')
+        gmailtoButton?.style.setProperty('display', 'none')
+
+        formButton.href = recipient
     }
-    mailtoButton.href = getEmailUrl(recipient, subject, content)
-    gmailtoButton.href = getGmailUrl(recipient, subject, content)
 
     const step5nav = /** @type {HTMLElement} */ (document?.getElementById('step-5__nav'))
     step5nav.style.visibility = 'visible';
