@@ -411,7 +411,7 @@ async function generate() {
                     if (data.content && output) {
                         output.textContent += data.content;
                         output.scrollTo({
-                            top: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
+                            top: output.scrollHeight,
                             behavior: 'smooth'
                         });
                     }
