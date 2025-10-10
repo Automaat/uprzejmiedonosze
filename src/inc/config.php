@@ -62,7 +62,8 @@ const SEXSTRINGS = Array (
         "anonimowa" => "anonimowa",
         "musiala" => "musiał(a)",
         "Patronka" => "Patronką(em)",
-        "żeńskiego" => "męskiego"
+        "żeńskiego" => "męskiego",
+        "mogla" => "mógł/mogła"
     ],
     'm' => [
         "bylam" => "byłem",
@@ -73,7 +74,8 @@ const SEXSTRINGS = Array (
         "anonimowy" => "anonimowy",
         "musiala" => "musiał",
         "Patronka" => "Patronem",
-        "żeńskiego" => "męskiego"
+        "żeńskiego" => "męskiego",
+        "mogla" => "mógł"
     ],
     'f' => [
         "bylam" => "byłam",
@@ -84,7 +86,8 @@ const SEXSTRINGS = Array (
         "anonimowa" => "anonimowa",
         "musiala" => "musiała",
         "Patronka" => "Patronką",
-        "żeńskiego" => "żeńskiego"
+        "żeńskiego" => "żeńskiego",
+        "mogla" => "mogła"
     ]
 );
 

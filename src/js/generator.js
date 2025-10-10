@@ -31,7 +31,7 @@ function showStep(stepNumber) {
         if (stepNumberSpan) {
             stepNumberSpan.style.display = 'none';
         }
-        if ([2, 3, 4].includes(stepNumber)) {
+        if ([1, 2, 3, 4].includes(stepNumber)) {
             header.style.display = 'flex';
             if (stepNumberSpan) {
                 stepNumberSpan.style.display = 'inline';
@@ -44,6 +44,8 @@ function showStep(stepNumber) {
 function prevStep() {
     if (currentStep > 1)
         showStep(currentStep - 1)
+    else
+        window.location.href = '/napisz-pismo-do-polityka.html'
 }
 
 function nextStep() {
@@ -408,8 +410,7 @@ async function generate() {
 
                     if (data.content && output) {
                         output.textContent += data.content;
-                        // Auto-scroll page to bottom
-                        window.scrollTo({
+                        output.scrollTo({
                             top: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
                             behavior: 'smooth'
                         });
@@ -422,8 +423,10 @@ async function generate() {
 
         const stepHeader = /** @type {HTMLElement} */ (document.querySelector("section#step-5>h1"));
         if (stepHeader) stepHeader.innerHTML = 'Twoje pismo do ' + targetsData[target].title;
+        status?.style.setProperty('display', 'none')
+        progressBar?.style.setProperty('display', 'none')
 
-        // Show and populate email links after successful generation
+        
         populateEmailLinks();
 
     } catch (error) {

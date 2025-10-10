@@ -100,4 +100,12 @@
         background-color: #1877F2;
     }
 
+    &.link {
+        width: fit-content;
+        background: none;
+        text-decoration: underline;
+        font-weight: 400;
+        color: #000 !important;
+    }
+
 }

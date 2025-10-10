@@ -60,12 +60,16 @@
     <div class="progress" id="progress"></div>
   </div>
   <div id="output"></div>
+  <div>
+    <p>
+      <b>Będziesz {{ config.sex.mogla }} przeczytać i ew. poprawić swoje pismo przed wysłaniem.</b>
+    </p>
+  </div>
   <nav id="step-5__nav">
       <a class="button fit-content inline light" id='mailtoButton' href="#" target="_blank" rel="external">Wyślij e-mail</a>
       <a class="button fit-content inline light" id='gmailtoButton' href="#" target="_blank" rel="external">Wyślij przez Gmaila</a>
       <a class="button fit-content inline light" id="copyBtn" onclick="copyToClipboard('#output')" >Skopiuj tekst</a>
-
-      <a class="button light" id='generateButton' href="#" data-action="restart">Napisz kolejne pismo</a>
+      <a class="button link" id='generateButton' href="#" data-action="restart">Napisz kolejne pismo</a>
   </nav>
 </section>
 
