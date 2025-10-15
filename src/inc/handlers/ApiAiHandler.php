@@ -7,6 +7,10 @@ require_once(__DIR__ . '/../data.php');
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Symfony\Component\Mailer\Transport;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\Address;
 
 class ApiAiHandler extends \AbstractHandler {
     //private string $model = 'gpt-3.5-turbo'; //'gpt-5-nano'; // 'gpt-5-mini':
@@ -29,7 +33,6 @@ class ApiAiHandler extends \AbstractHandler {
         }
         flush();
     }
-
 
     public function stream(Request $request, Response $response, array $args): Response {
         // Get data from either POST body or GET parameters
@@ -130,12 +133,15 @@ class ApiAiHandler extends \AbstractHandler {
                 $this->printAndFlush(json_encode(['content' => "\n$name"]));
                 $this->printAndFlush(json_encode(['content' => "\n$city\n"]));
 
-                // Send done signal
-                $this->printAndFlush('[DONE]');
 
                 $price = $this->calculateEstimation($systemPrompt, $contentPrompt, $completion);
                 $petition->setGenerated($completion, $price);
                 \generator\set($petition);
+
+                $this->sendPetition($petition);
+                $this->printAndFlush(json_encode(['toast' => "Wysłaliśmy Ci kopię tego pisma"]));
+                // Send done signal
+                $this->printAndFlush('[DONE]');
 
                 exit;
             };
@@ -336,5 +342,41 @@ class ApiAiHandler extends \AbstractHandler {
         }
 
         return $this->renderJson($response, $mps);
+    }
+
+    private function sendPetition(Petition $petition) {
+        $text = $petition->text;
+
+        // extract subject
+        $searchForSubject = [];
+        if (preg_match('/Temat: (.*)/', $text, $searchForSubject)) {
+            $subject = trim($searchForSubject[1]);
+        } else {
+            $subject = 'Pismo w sprawie przepisów związanych z parkowaniem';
+        }
+
+
+        $intro  = "# To jest kopia pisma przygotowanego dla Ciebie za pomocą Kreatora Pism Uprzejmie Donoszę.\n";
+        $intro .= "# Wysyłami Ci ją na wszelki wypadek – jeśli nie udało się wysłać wiadomości bezpośrednio z kreatora.\n";
+        $intro .= "# Nie przesyłaj tej wiadomości za pomocą funkcji „forward”. Skopiuj treść i napisz nową wiadomość.\n";
+        $text = "$intro\n\n$text";
+
+        $message = (new Email());
+        $message->from(new Address(MAILER_FROM, 'uprzejmiedonosze.net'));
+        $message->to($petition->email);
+
+        $message->subject($subject);
+        $message->text($text);
+
+        $message->getHeaders()->addTextHeader("v:isprod", isProd() ? 1 : 0);
+        $message->getHeaders()->addTextHeader("v:environment", environment());
+        $message->getHeaders()->addTextHeader("o:testmode", isDev());
+        $message->getHeaders()->addTextHeader("References", "petition-{$petition->id}@dka.email");
+        $message->getHeaders()->addTextHeader("X-Entity-Ref-ID", "petition-{$petition->id}");
+        $message->getHeaders()->addTextHeader('content-transfer-encoding', 'quoted-printable');
+
+        $transport = Transport::fromDsn(MAILER_DSN);
+        $mailer = new Mailer($transport);    
+        $mailer->send($message);    
     }
 }

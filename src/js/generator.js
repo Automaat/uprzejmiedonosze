@@ -1,4 +1,4 @@
-import { error as errorToast } from "./lib/toast";
+import { error as errorToast, toast } from "./lib/toast";
 
 let topicsData = [];
 let formTypesData = {};
@@ -535,6 +535,11 @@ async function generate() {
 
                 try {
                     const data = JSON.parse(eventData);
+
+                    if (data.toast) {
+                        toast(data.toast)
+                        continue
+                    }
 
                     if (data.error) {
                         throw new Error(data.error);
