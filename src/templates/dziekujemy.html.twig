@@ -54,8 +54,8 @@ Z poważaniem
     </div>
 {% endif %}
 
-{% if ( not isPatron ) and ( random(2) == 1 or appsCount == 1 ) and app.automatedSM %}
-{% set dice = random('ABCD') %}
+{% if ( random(2) == 1 or appsCount == 1 ) and app.automatedSM %}
+{% set dice = isPatron ? random('AEE') : random('ABCDEE') %}
 {% if dice == 'A' %}
 
     <h4>Nie lubisz zgłaszać?</h4>
@@ -103,6 +103,20 @@ Z poważaniem
         Dowiedz się więcej
     </a>
 
+{% elseif dice == 'E' %}
+    <h4>Napisz pismo w 3 minuty</h4>
+    <p>
+        Chcesz napisać do decydenta, ale nie wiesz jak się do tego zabrać?
+    </p>
+    <p>
+        Z naszym kreatorem pism stworzysz całkowicie unikalne i merytoryczne
+        pismo z wnioskiem o zmianę przepisów. Dotrzyj do decydentów!
+    </p>
+
+    <a href="/napisz-pismo-do-polityka.html"
+        class="fit-content button">
+        Napisz pismo
+    </a>
 {% endif %}
 {% endif %}
 
