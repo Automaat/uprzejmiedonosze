@@ -3652,5 +3652,23 @@
       "82-100 Nowy Dwór Gdański"
     ],
     "email": "komenda.ndg@gd.policja.gov.pl"
+  },
+  "powiat lubelski": {
+    "address": [
+      "Komenda Miejska Policji w Lublinie",
+      "ul. Północna 3",
+      "20-064 Lublin"
+    ],
+    "email": "komendant.kmplublin@lu.policja.gov.pl",
+    "hint": "Komenda Miejsca w Lublinie wzywa na przesłuchanie. Poza tym doświadczenia są przeważająco pozytywne."
+  },
+  "powiat rzeszowski": {
+    "address": [
+      "Komenda Miejska Policji w Rzeszowie",
+      "ul. Jagiellońska 13",
+      "35-959 Rzeszów"
+    ],
+    "email": "kmp.rzeszow@podkarpacka.policja.gov.pl"
+
   }
 }
