@@ -14,3 +14,26 @@ function get(string $petitionId): Petition {
 function set(Petition $petition) {
     \store\set(TABLE, $petition->id, json_encode($petition));
 }
+
+function getTargetStats() {
+    $sql = <<<SQL
+    select json_extract(value, '$.target'),
+        count(key)
+    from petition
+    group by 1
+SQL;
+    $stats = \store\query($sql)->fetchAll(\PDO::FETCH_KEY_PAIR);
+    return $stats;
+}
+
+function getRecipientStats() {
+    $sql = <<<SQL
+    select json_extract(value, '$.recipient'),
+        count(key)
+    from petition
+    where ifnull(json_extract(value, '$.recipient'), "") <> ""
+    group by 1
+SQL;
+    $stats = \store\query($sql)->fetchAll(\PDO::FETCH_KEY_PAIR);
+    return $stats;
+}

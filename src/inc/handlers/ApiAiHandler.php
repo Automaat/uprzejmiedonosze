@@ -206,6 +206,11 @@ class ApiAiHandler extends \AbstractHandler {
      */
     public function getTargets(Request $request, Response $response, array $args): Response {
         global $TARGETS;
+
+        $stats = \generator\getTargetStats();
+        foreach ($TARGETS as $key => $target) {
+           $TARGETS[$key]['petitionCount'] = $stats[$key] ?? 0;
+        }
         return $this->renderJson($response, $TARGETS);
     }
 
@@ -282,6 +287,8 @@ class ApiAiHandler extends \AbstractHandler {
             $city = self::getUserDistrict($user, $districts);
             $voivodeship = self::getUserVoivodeship($user);
         }
+
+        $stats = \generator\getRecipientStats();
         foreach ($mps as $key => $mp) {
             $cities = $districts[$mp['district']]['cities'];
 
@@ -308,6 +315,8 @@ class ApiAiHandler extends \AbstractHandler {
             $mps[$key]['formal'] = "Szanowna Pani\n{$mps[$key]['name']}\nSejm Rzeczypospolitej Polskiej";
             if ($mps[$key]['sex'] == 'm')
                 $mps[$key]['formal'] = "Szanowy Pan\n{$mps[$key]['name']}\nSejm Rzeczypospolitej Polskiej";
+
+            $mps[$key]['petitionCount'] = $stats[$key] ?? 0;
         }
 
         return $this->renderJson($response, $mps);

@@ -1,4 +1,5 @@
 import { error as errorToast, toast } from "./lib/toast";
+import { num } from "./lib/format"
 
 let topicsData = [];
 let formTypesData = {};
@@ -194,7 +195,7 @@ async function fetchRecipients() {
               <label>
                 <input type="radio" name='recipient'
                     value="${name}" onchange="window.checkRecipient()" />
-                ${recipient.name}
+                <i>${recipient.name} ${recipient.petitionCount ? ('(' + num(recipient.petitionCount, ['pism)', 'pismo)', 'pisma)'])) : '' }</i>
               </label>
         `).join('');
         }
@@ -322,7 +323,9 @@ const renderTargets = () => {
     container.innerHTML = availableTargets.map(([id, target]) => `
             <label>
               <input type="radio" name="target" data-recipient="${target.email || target.form || (target.selector && "selector:" + target.selector)}" onchange="window.checkTarget()" value="${id}">
-              ${target.title}
+              <div><b>${target.title}</b>
+              <p><i>${target.petitionCount ? ('(' + num(target.petitionCount, ['wysłanych pism)', 'wysłane pismo)', 'wysłane pisma)'])) : '' }</i></p>
+              </div>
             </label>
         `).join('');
 
