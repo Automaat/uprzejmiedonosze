@@ -279,7 +279,8 @@ function renderTopics() {
     const container = document.getElementById('fs-topics');
     if (!container) return;
 
-    container.innerHTML = Object.entries(topicsData).map(([id, topic]) => `
+    container.innerHTML = Object.entries(topicsData)
+        .sort(() => Math.random() - 0.5).map(([id, topic]) => `
             <label>
               <input type="checkbox" name='topics[]' value="${id}" onchange="window.validateTopics()">
               <div><b>${topic.title}</b>
