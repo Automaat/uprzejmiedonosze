@@ -20,6 +20,7 @@ function getTargetStats() {
     select json_extract(value, '$.target'),
         count(key)
     from petition
+    where json_extract(value, '$.status') = 'generated'
     group by 1
 SQL;
     $stats = \store\query($sql)->fetchAll(\PDO::FETCH_KEY_PAIR);
@@ -32,6 +33,7 @@ function getRecipientStats() {
         count(key)
     from petition
     where ifnull(json_extract(value, '$.recipient'), "") <> ""
+        and json_extract(value, '$.status') = 'generated'
     group by 1
 SQL;
     $stats = \store\query($sql)->fetchAll(\PDO::FETCH_KEY_PAIR);
