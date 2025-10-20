@@ -3669,6 +3669,13 @@
       "35-959 Rzeszów"
     ],
     "email": "kmp.rzeszow@podkarpacka.policja.gov.pl"
-
+  },
+  "Drawsko Pomorskie": {
+    "address": [
+      "Straż Miejska w Drawsku Pomorskim",
+      "ul. Kolejowa 1",
+      "78-500 Drawsko Pomorskie"
+    ],
+    "email": "sm@drawsko.pl"
   }
 }
