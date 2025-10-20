@@ -47,7 +47,7 @@ const smArray = Object.entries(sm).filter(([e, _v]) => e != '_nieznane')
 const zip = smArray.filter(([_e, v]) => v.address[2].search(/\d\d-\d\d\d /) != 0 && v.city != 'Warszawa')
 if(zip.length) console.error('zip code problem:', zip)
 
-const email = smArray.filter(([_e, v]) => v.email.search(/@/) <= 0)
+const email = smArray.filter(([_e, v]) => (v.email == undefined) || v.email?.email?.search(/@/) <= 0)
 if(email.length) console.error('email problem', email)
 
 const api = smArray.filter(([_e, v]) => ! ['MailGun', 'Poznan', 'Mail'].includes(v.api))

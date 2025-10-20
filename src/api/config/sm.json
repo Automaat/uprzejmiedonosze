@@ -1202,7 +1202,8 @@
       "ul. Wrocławska 122",
       "41-902 Bytom"
     ],
-    "email": "dyzurny@strazmiejska.bytom.pl"
+    "email": "dyzurny@strazmiejska.bytom.pl",
+    "hint": "Mamy pozytywne sygnały ze współpracy z SM w Bytomiu."
   },
   "Czeladź": {
     "address": [
@@ -1308,7 +1309,8 @@
       "ul. Sienkiewicza 2a",
       "42-600 Tarnowskie Góry"
     ],
-    "email": "strazmiejska@um.tgory.pl"
+    "email": "strazmiejska@um.tgory.pl",
+    "hint": "SM w Tarnowskich Górach niestety wzywa na przesłuchanie do każdego zgłoszenia i aktywnie zniechęca do współpracy"
   },
   "Żyrardów": {
     "address": [
