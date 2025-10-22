@@ -32,7 +32,7 @@ Odblokuj proszę mój adres IP: __IP__
         var xmlHttp = new XMLHttpRequest()
         xmlHttp.open( "GET", "/ip", false )
         xmlHttp.send()
-        return xmlHttp.responseText;
+        return xmlHttp.responseText.trim();
     }
 
     const ip = getIp()
