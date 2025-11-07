@@ -178,7 +178,7 @@ $TARGETS = [
         "title" => "Premiera",
         "forms" => ["email", "complaint", "proposal"],
         "formal" => "Szanowny Pan\nDonald Tusk\nPrezes Rady Ministrów\nAl. Ujazdowskie 1/3\n00-583 Warszawa",
-        "email" => "kontakt@kprm.gov.pl"
+        "form" => "https://www.gov.pl/web/premier/formularz-kontaktowy2"
     ],
     "Minister" => [
         "title" => "Ministra Infrastruktury",
