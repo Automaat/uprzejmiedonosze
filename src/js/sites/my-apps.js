@@ -7,6 +7,7 @@ import { filterable, triggerFilter} from "../lib/filterable";
 import makeDropdown from "../lib/dropdown";
 import makeDialog from "../lib/dialog";
 import sendApplication from "../lib/send";
+import { error } from "../lib/toast"
 
 document.addEventListener("DOMContentLoaded", (event) => {
   const appsList = document.getElementById('apps-list')
@@ -121,9 +122,25 @@ export async function appClicked(target) {
   makeDropdown()
 
   document.querySelectorAll('a.send-application').forEach(link => {
-    link.addEventListener('click', async function () {
+    link.addEventListener('click', async function (e) {
+      e.preventDefault()
+      
+      // Prevent multiple clicks
+      if (this.classList.contains('sending')) {
+        return
+      }
+      
+      this.classList.add('sending')
       const appId = this.dataset.appid
-      sendApplication(appId)
+      
+      try {
+        await sendApplication(appId)
+      } catch (err) {
+        console.error('Failed to send application:', err)
+        // Error toast is already shown by sendApplication, just log here
+      } finally {
+        this.classList.remove('sending')
+      }
     })
   })
 

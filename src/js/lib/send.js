@@ -18,8 +18,10 @@ async function sendApplication(/** @type {string} */ appId) {
   try {
     const api = new Api(`/api/app/${appId}/send`)
     const msg = await api.patch()
-    if (msg.status == 'redirect')
-      return location.href = '/brak-sm.html?id=' + appId
+    if (msg.status == 'redirect') {
+      location.href = '/brak-sm.html?id=' + appId
+      return
+    }
 
     updateStatus(appId, msg.status)
     toast("Wysłane")
@@ -51,8 +53,10 @@ async function sendApplication(/** @type {string} */ appId) {
         eventCategory: "js-error",
         eventAction: "sendViaAPI"
       })
+    throw e // Re-throw to allow caller to handle
+  } finally {
+    showButtons()
   }
-  showButtons()
 }
 
 export function showButtons() {

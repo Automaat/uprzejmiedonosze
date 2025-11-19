@@ -40,6 +40,12 @@
     pointer-events: none;
 }
 
+.sending {
+    opacity: .6;
+    cursor: wait !important;
+    pointer-events: none;
+}
+
 .button {
     @extend .base-button;
     border-radius: 16vmin;

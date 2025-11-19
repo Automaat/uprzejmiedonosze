@@ -1,4 +1,5 @@
 import sendApplication, { showButtons } from "../lib/send"
+import { error } from "../lib/toast"
 
 document.addEventListener("DOMContentLoaded", () => {
   if (!document.getElementsByClassName('dziekujemy').length)
@@ -10,9 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const automatedSM = automatedSMElement?.value
 
   if (appId && automatedSM) {
-    setTimeout(() => {
-      sendApplication(appId)
-    }, 1000)
+    // Immediate send instead of setTimeout to avoid race conditions
+    // where user closes tab or browser suspends execution
+    sendApplication(appId).catch(err => {
+       error(err)
+    })
   } else {
     showButtons()
   }
