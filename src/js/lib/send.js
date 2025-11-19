@@ -10,7 +10,9 @@ async function sendApplication(/** @type {string} */ appId) {
   const whatNext = document.querySelector(".whatNext")
   const afterSend = document.querySelector(".afterSend")
 
-  const statusElement = document.querySelector(`#${appId} .status-confirmed-waiting`)
+  // Use getElementById to avoid issues with IDs starting with numbers
+  const appElement = document.getElementById(appId)
+  const statusElement = appElement?.querySelector('.status-confirmed-waiting')
   if (statusElement) statusElement.classList.add("disabled")
 
   message("Wysyłam...")

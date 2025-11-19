@@ -8,7 +8,7 @@ export async function setStatus(appId, status) {
     if (!confirmation) return
   }
 
-  const changeStatusButton = document.querySelector(`#changeStatus${appId}`)
+  const changeStatusButton = document.getElementById(`changeStatus${appId}`)
   if (changeStatusButton)
     changeStatusButton.classList.add('disabled')
   
