@@ -386,7 +386,7 @@
   },
   "Łódź": {
     "address": [
-      "Komenda Straży Miejskiej w Łodzi",
+      "Straż Miejska w Łodzi",
       "ul. Wólczańska 121/123",
       "90-521 Łódź"
     ],
@@ -457,8 +457,8 @@
   "Katowice": {
     "address": [
       "Straż Miejska w Katowicach",
-      "ul. Żelazna 18",
-      "40-851 Katowice"
+      "ul. Korfantego 1a",
+      "40-051 Katowice"
     ],
     "email": "interwencje@katowice.eu",
     "hint": "Niestety SM Katowice wzywa na przesłuchanie do każdego zgłoszenia."
@@ -2356,7 +2356,7 @@
   "Śrem": {
     "address": [
       "Straż Miejska w Śremie",
-      "ul. Adama Mickiewicza 10",
+      "ul. Mickiewicza 10",
       "63-100 Śrem"
     ],
     "email": "dyzurny@strazmiejska.srem.pl"
@@ -3177,7 +3177,7 @@
   },
   "Kluczbork": {
     "address": [
-      "Straż Miejska Kluczbork",
+      "Straż Miejska w Kluczborku",
       "ul. Katowicka 1",
       "46-200 Kluczbork"
     ],
