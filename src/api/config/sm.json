@@ -151,7 +151,7 @@
   "Dzierzgoń": {
     "address": [
       "Straż Miejska w Dzierzgoniu",
-      "Plac Wolności 1",
+      "pl. Wolności 1",
       "82-440 Dzierzgoń"
     ],
     "email": "sm@dzierzgon.pl"
@@ -352,7 +352,7 @@
   "Kraków": {
     "address": [
       "Straż Miejska Miasta Krakowa",
-      "Al. Jana Pawła II 188",
+      "al. Jana Pawła II 188",
       "31-982 Kraków"
     ],
     "email": "smkrak@strazmiejska.krakow.pl",
@@ -628,7 +628,7 @@
   "Legnica": {
     "address": [
       "Straż Miejska w Legnicy",
-      "Al. Rzeczypospolitej 3",
+      "al. Rzeczypospolitej 3",
       "59-220 Legnica"
     ],
     "email": "sekretariat@sm.legnica.eu"
@@ -1001,7 +1001,7 @@
   "Nowa Ruda": {
     "address": [
       "Straż Miejska Nowa Ruda",
-      "Rynek 11",
+     "ul. Rynek 11",
       "57-400 Nowa Ruda"
     ],
     "email": "sm@um.nowaruda.pl"
@@ -1079,7 +1079,7 @@
   "Ciechanów": {
     "address": [
       "Straż Miejska w Ciechanowie",
-      "Plac Jana Pawła II 7",
+      "pl. Jana Pawła II 7",
       "06-400 Ciechanów"
     ],
     "email": "strazmiejska@umciechanow.pl"
@@ -1255,7 +1255,7 @@
   "Zgorzelec": {
     "address": [
       "Komenda Powiatowa Policji w Zgorzelcu",
-      "Bohaterów II Armii Wojska Polskiego 12",
+      "ul. Bohaterów II Armii Wojska Polskiego 12",
       "59-900 Zgorzelec"
     ],
     "email": "kpp@zgorzelec.wr.policja.gov.pl"
@@ -1346,7 +1346,7 @@
   "Wieliczka": {
     "address": [
       "Straż Miejska w Wieliczce",
-      "Pl. M. Skulimowskiego 2",
+      "pl. M. Skulimowskiego 2",
       "32-020 Wieliczka"
     ],
     "email": "straz@wieliczka.eu"
@@ -1594,7 +1594,7 @@
   "Łochów": {
     "address": [
       "Straż Miejska w Łochowie",
-      "ul. Aleja Pokoju 75",
+      "al. Pokoju 75",
       "07-130 Łochów"
     ],
     "email": "straz.miejska@gminalochow.pl"
@@ -1760,7 +1760,7 @@
   "Wałbrzych": {
     "address": [
       "Straż Miejska w Wałbrzychu",
-      "Rynek 23",
+     "ul. Rynek 23",
       "58-300 Wałbrzych"
     ],
     "email": "strazmiejska@um.walbrzych.pl"
@@ -1784,7 +1784,7 @@
   "Złotoryja": {
     "address": [
       "Straż Miejska w Złotoryi",
-      "Plac Orląt Lwowskich 1",
+      "pl. Orląt Lwowskich 1",
       "59-500 Złotoryja"
     ],
     "email": "sm@zlotoryja.pl"
@@ -1848,7 +1848,7 @@
   "Czerwonak": {
     "address": [
       "Straż Gminna Czerwonak",
-      "Osiedle Leśne 16",
+      "os. Leśne 16",
       "62-028 Koziegłowy"
     ],
     "email": "straz@czerwonak.pl"
@@ -1965,7 +1965,7 @@
   "Wieliszew": {
     "address": [
       "Komisariat Policji w Wieliszewie",
-      "ul. Aleja Solidarności 25",
+      "al. Solidarności 25",
       "05-135 Wieliszew"
     ],
     "email": "dzielnicowy.wieliszew14@ksp.policja.gov.pl"
@@ -2135,7 +2135,7 @@
   "Nowy Dwór Gdański": {
     "address": [
       "Straż Miejska w Nowym Dworze Gdańskim",
-      "ul. Plac Wolności 26",
+      "pl. Wolności 26",
       "82-100 Nowy Dwór Gdański"
     ],
     "email": "straz.miejska@miastonowydwor.pl"
@@ -2415,7 +2415,7 @@
   "Świebodzice": {
     "address": [
       "Straż Miejska w Świebodzicach",
-      "Plac Dworcowy 1",
+      "pl. Dworcowy 1",
       "58-160 Świebodzice"
     ],
     "email": "swiebodzice@swiebodzice.pl"
@@ -2423,7 +2423,7 @@
   "Jelenia Góra": {
     "address": [
       "Straż Miejska w Jeleniej Górze",
-      "Armii Krajowej 19",
+      "ul. Armii Krajowej 19",
       "50-500 Jelenia Góra"
     ],
     "email": "zgloszeniasm@jeleniagora.pl"
@@ -2530,7 +2530,7 @@
   "Głuchołazy": {
     "address": [
       "Straż Miejska w Głuchołazach",
-      "Rynek 15",
+     "ul. Rynek 15",
       "48-340 Głuchołazy"
     ],
     "email": "sm@glucholazy.pl"
@@ -2817,7 +2817,7 @@
   "Raszyn": {
     "address": [
       "Komisariat Policji w Raszynie",
-      "Al. Krakowska 16",
+      "al. Krakowska 16",
       "05-090 Raszyn"
     ],
     "email": "dyzurny.kp-raszyn@ksp.policja.gov.pl"
@@ -3649,7 +3649,7 @@
   "gmina Gołdap": {
     "address": [
       "Straż Miejska Gołdap",
-      "Plac Zwycięstwa 14/42",
+      "pl. Zwycięstwa 14/42",
       "19-500 Gołdap"
     ],
     "email": "straz.miejska@goldap.pl"
@@ -3706,7 +3706,7 @@
   "Żuromin": {
     "address": [
       "Straż Miejska w Żurominie",
-      "Plac Piłsudskiego 3",
+      "pl. Piłsudskiego 3",
       "09-300 Żuromin"
     ],
     "email": "straz@zuromin.info"
@@ -3730,7 +3730,7 @@
   "Chełmno": {
     "address": [
       "Straż Miejska w Chełmnie",
-      "Dworcowa 10",
+      "ul. Dworcowa 10",
       "86-200 Chełmno"
     ],
     "email": "komenda_strazy_miejskiej@chelmno.pl"
@@ -3738,7 +3738,7 @@
   "Chełmża": {
     "address": [
       "Straż Miejska w Chełmży",
-      "Gen. Hallera 19",
+      "ul. Hallera 19",
       "87-100 Chełmża"
     ],
     "email": "sm@um.chelmza.pl"
@@ -3746,7 +3746,7 @@
   "Lipno": {
     "address": [
       "Straż Miejska w Lipnie",
-      "Plac Dekerta 8",
+      "pl. Dekerta 8",
       "87-600 Lipno"
     ],
     "email": "straz@umlipno.pl"
@@ -3754,7 +3754,7 @@
   "Mogilno": {
     "address": [
       "Straż Miejska w Mogilnie",
-      "Narutowicza 1",
+      "ul. Narutowicza 1",
       "88-300 Mogilno"
     ],
     "email": "straz.miejska@mogilno.pl"
@@ -3762,7 +3762,7 @@
   "Mrocza": {
     "address": [
       "Straż Miejska w Mroczy",
-      "Plac 1 Maja 20",
+      "pl. 1 Maja 20",
       "89-115 Mrocza"
     ],
     "email": "straz.miejska@mrocza.pl"
@@ -3770,7 +3770,7 @@
   "Rypin": {
     "address": [
       "Straż Miejska w Rypinie",
-      "Warszawska 40",
+      "ul. Warszawska 40",
       "87-500 Rypin"
     ],
     "email": "janusz.kowalewski@rypin.eu"
@@ -3802,7 +3802,7 @@
   "Włodawa": {
     "address": [
       "Straż Miejska we Włodawie",
-      "Al. Piłsudskiego 41",
+      "al. Piłsudskiego 41",
       "22-200 Włodawa"
     ],
     "email": "sm@wlodawa.eu"
@@ -3874,7 +3874,7 @@
   "Sulechów": {
     "address": [
       "Straż Miejska w Sulechowie",
-      "Pl. Ratuszowy 6",
+      "pl. Ratuszowy 6",
       "66-100 Sulechów"
     ],
     "email": "sm@sulechow.pl"
@@ -3882,7 +3882,7 @@
   "Wschowa": {
     "address": [
       "Straż Miejska we Wschowie",
-      "Pl. Zamkowy 8",
+      "pl. Zamkowy 8",
       "67-400 Wschowa"
     ],
     "email": "strazmiejska@wschowa.pl"
@@ -3994,7 +3994,7 @@
   "Lewin Brzeski": {
     "address": [
       "Straż Miejska w Lewinie Brzeskim",
-      "Rynek 1",
+     "ul. Rynek 1",
       "49-340 Lewin Brzeski"
     ],
     "email": "sm@lewin-brzeski.pl"
@@ -4010,7 +4010,7 @@
   "Paczków": {
     "address": [
       "Straż Miejska w Paczkowie",
-      "Rynek 1",
+     "ul. Rynek 1",
       "48-370 Paczków"
     ],
     "email": "sm@paczkow.pl"
@@ -4114,7 +4114,7 @@
   "Daleszyce": {
     "address": [
       "Straż Miejska w Daleszycach",
-      "Ul. Sienkiewicza 11",
+      "ul. Sienkiewicza 11",
       "26-021 Daleszyce"
     ],
     "email": "strazmiejska@daleszyce.pl"
@@ -4138,7 +4138,7 @@
   "Barczewo": {
     "address": [
       "Straż Miejska w Barczewie",
-      "Plac Ratuszowy 1",
+      "pl. Ratuszowy 1",
       "11-010 Barczewo"
     ],
     "email": "strazmiejska@barczewo.pl"
@@ -4162,7 +4162,7 @@
   "Gołdap": {
     "address": [
       "Straż Miejska w Gołdapi",
-      "Plac Zwycięstwa 14/42",
+      "pl. Zwycięstwa 14/42",
       "19-500 Gołdap"
     ],
     "email": "straz.miejska@goldap.pl"
@@ -4186,7 +4186,7 @@
   "Nidzica": {
     "address": [
       "Straż Miejska w Nidzicy",
-      "Pl. Wolności 1",
+      "pl. Wolności 1",
       "13-100 Nidzica"
     ],
     "email": "strazmiejska@nidzica.pl"
@@ -4202,7 +4202,7 @@
   "Pasłęk": {
     "address": [
       "Straż Miejska w Pasłęku",
-      "Pl. Św. Wojciecha 5",
+      "pl. Św. Wojciecha 5",
       "14-400 Pasłęk"
     ],
     "email": "patryk.kwiecinski@paslek.pl"
@@ -4210,7 +4210,7 @@
   "Czarnków": {
     "address": [
       "Straż Miejska w Czarnkowie",
-      "Pl. Wolności 6",
+      "pl. Wolności 6",
       "64-700 Czarnków"
     ],
     "email": "sm@czarnkow.pl"
@@ -4290,7 +4290,7 @@
   "Pleszew": {
     "address": [
       "Straż Miejska w Pleszewie",
-      "Pl. Kościelny 1",
+      "pl. Kościelny 1",
       "63-300 Pleszew"
     ],
     "email": "straz@pleszew.pl"
@@ -4306,7 +4306,7 @@
   "Ujście": {
     "address": [
       "Straż Miejska w Ujściu",
-      "Pl. Wiosny Ludów 2",
+      "pl. Wiosny Ludów 2",
       "64-850 Ujście"
     ],
     "email": "tomek@ujscie.pl"
@@ -4330,7 +4330,7 @@
   "Złotów": {
     "address": [
       "Straż Miejska w Złotowie",
-      "Al. Piasta 1",
+      "al. Piasta 1",
       "77-400 Złotów"
     ],
     "email": "strazmiejska@zlotow.pl"
@@ -4346,7 +4346,7 @@
   "Borne Sulinowo": {
     "address": [
       "Straż Miejska w Bornem Sulinowie",
-      "ul. Al. Niepodległości 6",
+      "ul. al. Niepodległości 6",
       "78-449 Borne Sulinowo"
     ],
     "email": "komendant@bornesulinowo.pl"
@@ -4386,7 +4386,7 @@
   "Połczyn-Zdrój": {
     "address": [
       "Straż Miejska w Połczynie - Zdroju",
-      "ul. Plac Wolności 11",
+      "pl. Wolności 11",
       "78-320 Połczyn - Zdrój"
     ],
     "email": "sm@polczyn-zdroj.pl"
@@ -4394,7 +4394,7 @@
   "Pyrzyce": {
     "address": [
       "Straż Miejska w Pyrzycach",
-      "ul. Plac Ratuszowy 1",
+      "pl. Ratuszowy 1",
       "74-200 Pyrzyce"
     ],
     "email": "straz_miejska@pyrzyce.um.gov.pl"
@@ -4418,7 +4418,7 @@
   "Świdwin": {
     "address": [
       "Straż Miejska w Świdwinie",
-      "PI. Konstytucji 3 Maja 1",
+      "pl. Konstytucji 3 Maja 1",
       "78-300 Świdwin"
     ],
     "email": "straz.miejska@swidwin.pl"
@@ -4426,7 +4426,7 @@
   "Wałcz": {
     "address": [
       "Straż Miejska w Wałczu",
-      "ul. Plac Wolności 1",
+      "pl. Wolności 1",
       "78-600 Wałcz"
     ],
     "email": "straz@umwalcz.pl"
@@ -4450,7 +4450,7 @@
   "Kutno": {
     "address": [
       "Straż Miejska w Kutnie",
-      "Pl. Marszałka Piłsudskiego 18",
+      "pl. Marszałka Piłsudskiego 18",
       "99-300 Kutno"
     ],
     "email": "straz-miejska@poczta.pl"
