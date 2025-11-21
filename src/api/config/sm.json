@@ -3696,5 +3696,772 @@
     ],
     "email": "sekretariat@um.wielun.pl"
   },
+  "Płońsk": {
+    "address": [
+      "Straż Miejska w Płońsku",
+      "ul. Płocka 39",
+      "09-100 Płońsk"
+    ],
+    "email": "sm@plonsk.pl"
+  },
+  "Żuromin": {
+    "address": [
+      "Straż Miejska w Żurominie",
+      "Plac Piłsudskiego 3",
+      "09-300 Żuromin"
+    ],
+    "email": "straz@zuromin.info"
+  },
+  "Nowe Miasto": {
+    "address": [
+      "Straż Miejska w Nowym Mieście",
+      "ul. Apteczna 8",
+      "09-120 Nowe Miasto"
+    ],
+    "email": "jwardzynski@ugnowemiasto.pl"
+  },
+  "Nasielsk": {
+    "address": [
+      "Straż Miejska w Nasielsku",
+      "ul. Elektronowa 3",
+      "05-190 Nasielsk"
+    ],
+    "email": "c.tudek@nasielsk.pl"
+  },
+  "Chełmno": {
+    "address": [
+      "Straż Miejska w Chełmnie",
+      "Dworcowa 10",
+      "86-200 Chełmno"
+    ],
+    "email": "komenda_strazy_miejskiej@chelmno.pl"
+  },
+  "Chełmża": {
+    "address": [
+      "Straż Miejska w Chełmży",
+      "Gen. Hallera 19",
+      "87-100 Chełmża"
+    ],
+    "email": "sm@um.chelmza.pl"
+  },
+  "Lipno": {
+    "address": [
+      "Straż Miejska w Lipnie",
+      "Plac Dekerta 8",
+      "87-600 Lipno"
+    ],
+    "email": "straz@umlipno.pl"
+  },
+  "Mogilno": {
+    "address": [
+      "Straż Miejska w Mogilnie",
+      "Narutowicza 1",
+      "88-300 Mogilno"
+    ],
+    "email": "straz.miejska@mogilno.pl"
+  },
+  "Mrocza": {
+    "address": [
+      "Straż Miejska w Mroczy",
+      "Plac 1 Maja 20",
+      "89-115 Mrocza"
+    ],
+    "email": "straz.miejska@mrocza.pl"
+  },
+  "Rypin": {
+    "address": [
+      "Straż Miejska w Rypinie",
+      "Warszawska 40",
+      "87-500 Rypin"
+    ],
+    "email": "janusz.kowalewski@rypin.eu"
+  },
+  "Biłgoraj": {
+    "address": [
+      "Straż Miejska w Biłgoraju",
+      "ul. Zamojska 20",
+      "23-400 Biłgoraj"
+    ],
+    "email": "strazmiejska@bilgoraj.pl"
+  },
+  "Krasnystaw": {
+    "address": [
+      "Straż Miejska w Krasnymstawie",
+      "pl. 3-ego Maja 29",
+      "22-300 Krasnystaw"
+    ],
+    "email": "strazm@krasnystaw.pl"
+  },
+  "Kraśnik": {
+    "address": [
+      "Straż Miejska w Kraśniku",
+      "ul. Lubelska 84",
+      "23-200 Kraśnik"
+    ],
+    "email": "sm@krasnik.eu"
+  },
+  "Włodawa": {
+    "address": [
+      "Straż Miejska we Włodawie",
+      "Al. Piłsudskiego 41",
+      "22-200 Włodawa"
+    ],
+    "email": "sm@wlodawa.eu"
+  },
+  "Bytom Odrzański": {
+    "address": [
+      "Straż Miejska w Bytomiu Odrzańskim",
+      "ul. Rynek 1",
+      "67-115 Bytom Odrzański"
+    ],
+    "email": "sm@bytomodrzanski.pl"
+  },
+  "Czerwieńsk": {
+    "address": [
+      "Straż Miejska w Czerwieńsku",
+      "ul. Józefa Piłsudskiego 4",
+      "66-016 Czerwieńsk"
+    ],
+    "email": "strazmiejska@czerwiensk.pl"
+  },
+  "Gorzów Wlkp.": {
+    "address": [
+      "Straż Miejska w Gorzowie Wlkp.",
+      "ul. Myśliborska 34",
+      "66-400 Gorzów Wlkp."
+    ],
+    "email": "ksm@strazgorzow.pl"
+  },
+  "Gubin": {
+    "address": [
+      "Straż Miejska w Gubinie",
+      "ul. Armii Krajowej 24",
+      "66-620 Gubin"
+    ],
+    "email": "sm@gubin.pl"
+  },
+  "Kożuchów": {
+    "address": [
+      "Straż Miejska w Kożuchowie",
+      "ul. 1 Maja 40",
+      "67-120 Kożuchów"
+    ],
+    "email": "strazmiejska@kozuchow.pl"
+  },
+  "Krosno Odrzańskie": {
+    "address": [
+      "Straż Miejska w Krośnie Odrzańskim",
+      "ul. Parkowa 1",
+      "66-600 Krosno Odrzańskie"
+    ],
+    "email": "strazmiejska@krosnoodrzanskie.pl"
+  },
+  "Nowogród Bobrzański": {
+    "address": [
+      "Straż Miejska w Nowogrodzie Bobrzańskim",
+      "ul. Słowackiego 11",
+      "66-010 Nowogród Bobrzański"
+    ],
+    "email": "j.ciechowicz@nowogrodbobrz.pl"
+  },
+  "Sława": {
+    "address": [
+      "Straż Miejska w Sławie",
+      "ul. H. Pobożnego 10",
+      "67-410 Sława"
+    ],
+    "email": "strazmiejska@slawa.pl"
+  },
+  "Sulechów": {
+    "address": [
+      "Straż Miejska w Sulechowie",
+      "Pl. Ratuszowy 6",
+      "66-100 Sulechów"
+    ],
+    "email": "sm@sulechow.pl"
+  },
+  "Wschowa": {
+    "address": [
+      "Straż Miejska we Wschowie",
+      "Pl. Zamkowy 8",
+      "67-400 Wschowa"
+    ],
+    "email": "strazmiejska@wschowa.pl"
+  },
+  "Zbąszynek": {
+    "address": [
+      "Straż Miejska w Zbąszynku",
+      "ul. Rynek 15",
+      "66-210 Zbąszynek"
+    ],
+    "email": "strazmiejska@zbaszynek.pl"
+  },
+  "Bukowno": {
+    "address": [
+      "Straż Miejska w Bukownie",
+      "ul. Kolejowa 1",
+      "32-332 Bukowno"
+    ],
+    "email": "kryzysowe@umbukowno.pl"
+  },
+  "Koszyce": {
+    "address": [
+      "Straż Miejska w Koszycach",
+      "ul. Elżbiety Łokietkówny 14",
+      "32-130 Koszyce"
+    ],
+    "email": "ug@koszyce.gmina.pl"
+  },
+  "Limanowa": {
+    "address": [
+      "Straż Miejska w Limanowej",
+      "ul. Jana Pawła II 9",
+      "34-600 Limanowa"
+    ],
+    "email": "mbielski@miastolimanowa.pl"
+  },
+  "Miechów": {
+    "address": [
+      "Straż Miejska w Miechowie",
+      "ul. H. Sienkiewicza 25",
+      "32-200 Miechów"
+    ],
+    "email": "dburzynski@miechow.eu"
+  },
+  "Mszana Dolna": {
+    "address": [
+      "Straż Miejska w Mszanie Dolnej",
+      "ul. Piłsudskiego 2",
+      "34-730 Mszana Dolna"
+    ],
+    "email": "strazmiejska@mszana-dolna.pl"
+  },
+  "Nowe Brzesko": {
+    "address": [
+      "Straż Miejska w Nowym Brzesku",
+      "ul. Krakowska 44",
+      "32-120 Nowe Brzesko"
+    ],
+    "email": "straznikgminny@nowe-brzesko.pl"
+  },
+  "Proszowice": {
+    "address": [
+      "Straż Miejska w Proszowicach",
+      "ul. 3 Maja 72",
+      "32-100 Proszowice"
+    ],
+    "email": "sm@um.proszowice.pl"
+  },
+  "Słomniki": {
+    "address": [
+      "Straż Miejska w Słomnikach",
+      "ul. Tadeusza Kościuszki 64",
+      "32-090 Słomniki"
+    ],
+    "email": "um@slomniki.pl"
+  },
+  "Sucha Beskidzka": {
+    "address": [
+      "Straż Miejska w Suchej Beskidzkiej",
+      "ul. Mickiewicza 19",
+      "34-200 Sucha Beskidzka"
+    ],
+    "email": "straz@sucha-beskidzka.pl"
+  },
+  "Szczawnica": {
+    "address": [
+      "Straż Miejska w Szczawnicy",
+      "ul. Szalaya 103",
+      "34-460 Szczawnica"
+    ],
+    "email": "strazmiejska@szczawnica.pl"
+  },
+  "Wolbrom": {
+    "address": [
+      "Straż Miejska w Wolbromiu",
+      "ul. Krakowska 1",
+      "32-340 Wolbrom"
+    ],
+    "email": "jbalazy@strazmiejska.wolbrom.pl"
+  },
+  "Grodków": {
+    "address": [
+      "Straż Miejska w Grodkowie",
+      "ul. Warszawska 44/9",
+      "49-200 Grodków"
+    ],
+    "email": "strazmiejska@grodkow.pl"
+  },
+  "Lewin Brzeski": {
+    "address": [
+      "Straż Miejska w Lewinie Brzeskim",
+      "Rynek 1",
+      "49-340 Lewin Brzeski"
+    ],
+    "email": "sm@lewin-brzeski.pl"
+  },
+  "Namysłów": {
+    "address": [
+      "Straż Miejska w Namysłowie",
+      "ul. S. Dubois 3",
+      "46-100 Namysłów"
+    ],
+    "email": "straz.miejska@namyslow.eu"
+  },
+  "Paczków": {
+    "address": [
+      "Straż Miejska w Paczkowie",
+      "Rynek 1",
+      "48-370 Paczków"
+    ],
+    "email": "sm@paczkow.pl"
+  },
+  "Wołczyn": {
+    "address": [
+      "Straż Miejska w Wołczynie",
+      "ul. Rzeczna 3/8",
+      "46-250 Wołczyn"
+    ],
+    "email": "sm@wolczyn.pl"
+  },
+  "Zdzieszowice": {
+    "address": [
+      "Straż Miejska w Zdzieszowicach",
+      "ul. B. Chrobrego 34",
+      "47-330 Zdzieszowice"
+    ],
+    "email": "straz@zdzieszowice.pl"
+  },
+  "Kolbuszowa": {
+    "address": [
+      "Straż Miejska w KOLBUSZOWEJ",
+      "ul. Ruczki 3",
+      "36-100 Kolbuszowa"
+    ],
+    "email": "straz.miejska@ekolbuszowa.pl"
+  },
+  "Przeworsk": {
+    "address": [
+      "Straż Miejska w PRZEWORSKU",
+      "ul. Jagiellońska 10",
+      "37-200 Przeworsk"
+    ],
+    "email": "straz_um@przeworsk.um.gov.pl"
+  },
+  "Leżajsk": {
+    "address": [
+      "Straż Miejska w LEŻAJSKU",
+      "ul. Rynek 1",
+      "37-300 Leżajsk"
+    ],
+    "email": "straz@miastolezajsk.pl"
+  },
+  "Boguchwała": {
+    "address": [
+      "Straż Miejska w BOGUCHWALE",
+      "ul. Suszyckich 33",
+      "36-040 Boguchwała"
+    ],
+    "email": "m.korczynski@um.boguchwala.pl"
+  },
+  "Kolno": {
+    "address": [
+      "Straż Miejska w Kolnie",
+      "ul. Wojska Polskiego 20",
+      "18-500 Kolno"
+    ],
+    "email": "straz.miejska@kolno.home.pl"
+  },
+  "Miastko": {
+    "address": [
+      "Straż Miejska w Miastku",
+      "ul. Grunwaldzka 1",
+      "77-200 Miastko"
+    ],
+    "email": "strazmiejska@miastko.pl"
+  },
+  "Sztum": {
+    "address": [
+      "Straż Miejska w Sztumie",
+      "ul. Mickiewicza 39",
+      "82-400 Sztum"
+    ],
+    "email": "straz.miejska@sztum.pl"
+  },
+  "Ustka": {
+    "address": [
+      "Straż Miejska w Ustce",
+      "ul. kard. Stanisława Wyszyńskiego 3",
+      "76-270 Ustka"
+    ],
+    "email": "straz.miejska@um.ustka.pl"
+  },
+  "Busko-Zdrój": {
+    "address": [
+      "Straż Miejska w Busku-Zdroju",
+      "al. Mickiewicza 10",
+      "28-100 Busko-Zdrój"
+    ],
+    "email": "komendant@strazmiejska.busko.pl"
+  },
+  "Chmielnik": {
+    "address": [
+      "Straż Miejska w Chmielniku",
+      "ul. Ogrodnicza 12",
+      "26-020 Chmielnik"
+    ],
+    "email": "straz.miejska@chmielnik.com"
+  },
+  "Daleszyce": {
+    "address": [
+      "Straż Miejska w Daleszycach",
+      "Ul. Sienkiewicza 11",
+      "26-021 Daleszyce"
+    ],
+    "email": "strazmiejska@daleszyce.pl"
+  },
+  "Ostrowiec Św.": {
+    "address": [
+      "Straż Miejska w Ostrowcu Św.",
+      "ul. Świętokrzyska 22",
+      "27-400 Ostrowiec Świętokrzyski"
+    ],
+    "email": "sm@um.ostrowiec.pl"
+  },
+  "Ożarów": {
+    "address": [
+      "Straż Miejska w Ożarowie",
+      "ul. Stołeczna 5",
+      "27-530 Ożarów"
+    ],
+    "email": "strazmiejska@ozarow.pl"
+  },
+  "Barczewo": {
+    "address": [
+      "Straż Miejska w Barczewie",
+      "Plac Ratuszowy 1",
+      "11-010 Barczewo"
+    ],
+    "email": "strazmiejska@barczewo.pl"
+  },
+  "Biskupiec": {
+    "address": [
+      "Straż Miejska w Biskupcu",
+      "ul. Niepodległości 2",
+      "11-300 Biskupiec"
+    ],
+    "email": "straz.miejska@biskupiec.pl"
+  },
+  "Działdowo": {
+    "address": [
+      "Straż Miejska w Działdowie",
+      "ul. Grunwaldzka 7",
+      "13-200 Działdowo"
+    ],
+    "email": "sm@dzialdowo.pl"
+  },
+  "Gołdap": {
+    "address": [
+      "Straż Miejska w Gołdapi",
+      "Plac Zwycięstwa 14/42",
+      "19-500 Gołdap"
+    ],
+    "email": "straz.miejska@goldap.pl"
+  },
+  "Korsze": {
+    "address": [
+      "Straż Miejska w Korszach",
+      "ul. Mickiewicza 13",
+      "11-430 Korsze"
+    ],
+    "email": "straz.miejska@korsze.pl"
+  },
+  "Lidzbark (Gmina)": {
+    "address": [
+      "Straż Miejska w Lidzbarku",
+      "ul. Dworcowa 2",
+      "13-230 Lidzbark"
+    ],
+    "email": "umig@lidzbark.pl"
+  },
+  "Nidzica": {
+    "address": [
+      "Straż Miejska w Nidzicy",
+      "Pl. Wolności 1",
+      "13-100 Nidzica"
+    ],
+    "email": "strazmiejska@nidzica.pl"
+  },
+  "Reszel": {
+    "address": [
+      "Straż Miejska w Reszlu",
+      "ul. Rynek 24",
+      "11-440 Reszel"
+    ],
+    "email": "strazmiejska@gminareszel.pl"
+  },
+  "Pasłęk": {
+    "address": [
+      "Straż Miejska w Pasłęku",
+      "Pl. Św. Wojciecha 5",
+      "14-400 Pasłęk"
+    ],
+    "email": "patryk.kwiecinski@paslek.pl"
+  },
+  "Czarnków": {
+    "address": [
+      "Straż Miejska w Czarnkowie",
+      "Pl. Wolności 6",
+      "64-700 Czarnków"
+    ],
+    "email": "sm@czarnkow.pl"
+  },
+  "Golina": {
+    "address": [
+      "Straż Miejska w Golinie",
+      "ul. Nowa 1",
+      "62-590 Golina"
+    ],
+    "email": "strazmiejskagolina@o2.pl"
+  },
+  "Jastrowie": {
+    "address": [
+      "Straż Miejska w Jastrowiu",
+      "ul. Gdańska 79",
+      "64-915 Jastrowie"
+    ],
+    "email": "administracjasm@jastrowie.pl"
+  },
+  "Kłodawa": {
+    "address": [
+      "Straż Miejska w Kłodawie",
+      "ul. W. Jagiełły 2",
+      "62-650 Kłodawa"
+    ],
+    "email": "strazmiejska@klodawa.wlkp.pl"
+  },
+  "Koło": {
+    "address": [
+      "Straż Miejska w Kole",
+      "ul. Stary Rynek 15",
+      "62-600 Koło"
+    ],
+    "email": "straz.miejska@kolo.pl"
+  },
+  "Krajenka": {
+    "address": [
+      "Straż Miejska w Krajence",
+      "ul. Szkolna 17",
+      "77-430 Krajenka"
+    ],
+    "email": "strażnik@krajenka.pl"
+  },
+  "Krotoszyn": {
+    "address": [
+      "Straż Miejska w Krotoszynie",
+      "ul. Kołłątaja 7",
+      "63-700 Krotoszyn"
+    ],
+    "email": "sm@um.krotoszyn.pl"
+  },
+  "Margonin": {
+    "address": [
+      "Straż Miejska w Margoninie",
+      "ul. Poznańska 8",
+      "64-830 Margonin"
+    ],
+    "email": "straz.miejska@margonin.pl"
+  },
+  "Nowy Tomyśl": {
+    "address": [
+      "Straż Miejska w Nowym Tomyślu",
+      "ul. Poznańska 33",
+      "64-300 Nowy Tomyśl"
+    ],
+    "email": "strazmiejska@nowytomysl.pl"
+  },
+  "Opalenica": {
+    "address": [
+      "Straż Miejska w Opalenicy",
+      "ul. Zamkowa 2",
+      "64-330 Opalenica"
+    ],
+    "email": "sm@opalenica.pl"
+  },
+  "Pleszew": {
+    "address": [
+      "Straż Miejska w Pleszewie",
+      "Pl. Kościelny 1",
+      "63-300 Pleszew"
+    ],
+    "email": "straz@pleszew.pl"
+  },
+  "Pniewy": {
+    "address": [
+      "Straż Miejska w Pniewach",
+      "ul. św. Ducha 17",
+      "62-045 Pniewy"
+    ],
+    "email": "strazmiejska@pniewy.wlkp.pl"
+  },
+  "Ujście": {
+    "address": [
+      "Straż Miejska w Ujściu",
+      "Pl. Wiosny Ludów 2",
+      "64-850 Ujście"
+    ],
+    "email": "tomek@ujscie.pl"
+  },
+  "Wronki": {
+    "address": [
+      "Straż Miejska Wronki",
+      "ul. Ratuszowa 5",
+      "64-510 Wronki"
+    ],
+    "email": "strazmiejska@wronki.pl"
+  },
+  "Wyrzysk": {
+    "address": [
+      "Straż Miejska w Wyrzysku",
+      "ul. Bydgoska 32",
+      "89-300 Wyrzysk"
+    ],
+    "email": "strazmiejska@wyrzysk.pl"
+  },
+  "Złotów": {
+    "address": [
+      "Straż Miejska w Złotowie",
+      "Al. Piasta 1",
+      "77-400 Złotów"
+    ],
+    "email": "strazmiejska@zlotow.pl"
+  },
+  "Bobolice": {
+    "address": [
+      "Straż Miejska w Bobolicach",
+      "ul. Ratuszowa 1",
+      "76-020 Bobolice"
+    ],
+    "email": "sm@bobolice.pl"
+  },
+  "Borne Sulinowo": {
+    "address": [
+      "Straż Miejska w Bornem Sulinowie",
+      "ul. Al. Niepodległości 6",
+      "78-449 Borne Sulinowo"
+    ],
+    "email": "komendant@bornesulinowo.pl"
+  },
+  "Czaplinek": {
+    "address": [
+      "Straż Miejska w Czaplinku",
+      "ul. Rynek 6",
+      "78-550 Czaplinek"
+    ],
+    "email": "strazmiejska@czaplinek.pl"
+  },
+  "Kalisz Pomorski": {
+    "address": [
+      "Straż Miejska w Kaliszu Pomorskim",
+      "ul. Toruńska 3",
+      "78-540 Kalisz Pomorski"
+    ],
+    "email": "strazmiejska@kaliszpom.pl"
+  },
+  "Łobez": {
+    "address": [
+      "Straż Miejska w Łobzie",
+      "ul. Niepodległości 13",
+      "73-150 Łobez"
+    ],
+    "email": "sm@lobez.pl"
+  },
+  "Polanów": {
+    "address": [
+      "Straż Miejska w Polanowie",
+      "ul. Wolności 4",
+      "76-010 Polanów"
+    ],
+    "email": "sm@polanow.pl"
+  },
+  "Połczyn-Zdrój": {
+    "address": [
+      "Straż Miejska w Połczynie - Zdroju",
+      "ul. Plac Wolności 11",
+      "78-320 Połczyn - Zdrój"
+    ],
+    "email": "sm@polczyn-zdroj.pl"
+  },
+  "Pyrzyce": {
+    "address": [
+      "Straż Miejska w Pyrzycach",
+      "ul. Plac Ratuszowy 1",
+      "74-200 Pyrzyce"
+    ],
+    "email": "straz_miejska@pyrzyce.um.gov.pl"
+  },
+  "Stepnica": {
+    "address": [
+      "Straż Miejska w Stepnicy",
+      "ul. T Kościuszki 4",
+      "72-112 Stepnica"
+    ],
+    "email": "strazmiejska@stepnica.pl"
+  },
+  "Szczecinek": {
+    "address": [
+      "Straż Miejska w Szczecinku",
+      "ul Karlińska 15",
+      "78-400 Szczecinek"
+    ],
+    "email": "strazmiejska@szczecinek.net.pl"
+  },
+  "Świdwin": {
+    "address": [
+      "Straż Miejska w Świdwinie",
+      "PI. Konstytucji 3 Maja 1",
+      "78-300 Świdwin"
+    ],
+    "email": "straz.miejska@swidwin.pl"
+  },
+  "Wałcz": {
+    "address": [
+      "Straż Miejska w Wałczu",
+      "ul. Plac Wolności 1",
+      "78-600 Wałcz"
+    ],
+    "email": "straz@umwalcz.pl"
+  },
+  "Węgorzyno": {
+    "address": [
+      "Straż Miejska w Węgorzynie",
+      "ul. Rynek 1",
+      "73-155 Węgorzyno"
+    ],
+    "email": "urzad@wegorzyno.pl"
+  },
+  "Złocieniec": {
+    "address": [
+      "Straż Miejska w Złocieńcu",
+      "ul. Wolności 10",
+      "78-520 Złocieniec"
+    ],
+    "email": "um.straz@ziocieniec.pl"
+  },
+  "Kutno": {
+    "address": [
+      "Straż Miejska w Kutnie",
+      "Pl. Marszałka Piłsudskiego 18",
+      "99-300 Kutno"
+    ],
+    "email": "straz-miejska@poczta.pl"
+  },
+  "Zduńska Wola": {
+    "address": [
+      "Straż Miejska w Zduńskiej Woli",
+      "ul. Złotnickiego 3",
+      "98-220 Zduńska Wola"
+    ],
+    "email": "straz_miejska@zdunskawola.pl"
   }
 }
