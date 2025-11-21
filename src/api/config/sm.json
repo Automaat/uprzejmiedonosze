@@ -972,7 +972,7 @@
       "ul. Targowa 7",
       "32-005 Niepołomice"
     ],
-    "email": "straz.miejska@niepolomice.com"
+    "email": "straz.miejska@niepolomice.eu"
   },
   "Żywiec": {
     "address": [
@@ -1210,7 +1210,7 @@
       "ul. Katowicka 45",
       "41-250 Czeladź"
     ],
-    "email": "kniebylski@um.czeladz.pl"
+    "email": "sm@um.czeladz.pl"
   },
   "Jarocin": {
     "address": [
@@ -1250,7 +1250,7 @@
       "ul. Żeromskiego 26",
       "39-300 Mielec"
     ],
-    "email": "strazmiejska@um.mielec.pl"
+    "email": "straz.miejska@um.mielec.pl"
   },
   "Zgorzelec": {
     "address": [
@@ -1300,7 +1300,7 @@
       "al. Piłsudskiego 60",
       "44-335 Jastrzębie-Zdrój"
     ],
-    "email": "odsm@um.jastrzebie.pl"
+    "email": "sm@um.jastrzebie.pl"
   },
   "Tarnowskie Góry": {
     "address": [
@@ -1333,7 +1333,7 @@
       "ul. H. Jordana 8A",
       "32-400 Myślenice"
     ],
-    "email": "info@myslenice.pl"
+    "email": "sm@myslenice.pl"
   },
   "Żagań": {
     "address": [
@@ -1341,7 +1341,7 @@
       "ul. Kolejowa 88",
       "68-200 Żagań"
     ],
-    "email": "stramies@op.pl"
+    "email": "straz.komenda@um.zagan.pl"
   },
   "Wieliczka": {
     "address": [
@@ -1393,8 +1393,7 @@
       "45-072 Opole"
     ],
     "email": "dyzurny@strazmiejska.opole.pl",
-    "hint": "SM Opole nie wzywa zgłaszających na przesłuchanie. Wzywany jest sprawca. Dopiero gdy sprawca zaprzeczy, że dokonał wykroczenia wzywany jest zgłaszający.",
-    "api": "Mail"
+    "hint": "SM Opole nie wzywa zgłaszających na przesłuchanie. Wzywany jest sprawca. Dopiero gdy sprawca zaprzeczy, że dokonał wykroczenia wzywany jest zgłaszający."
   },
   "Radzymin": {
     "address": [
@@ -1434,7 +1433,7 @@
       "ul. Warszawska 14",
       "82-500 Kwidzyn"
     ],
-    "email": "strazmiejska@um.kwidzyn.pl"
+    "email": "strazmiejska@kwidzyn.pl"
   },
   "Wolsztyn": {
     "address": [
@@ -1606,7 +1605,7 @@
       "ul. Rynek Mariacki 14",
       "07-100 Węgrów"
     ],
-    "email": "piotr.koc@wegrow.com.pl"
+    "email": "katarzyna.ostrowska@wegrow.com.pl"
   },
   "Sierpc": {
     "address": [
@@ -1863,7 +1862,7 @@
       "ul. Kościuszki 12a",
       "63-400 Ostrów Wielkopolski"
     ],
-    "email": "straz_miejska@vp.pl"
+    "email": "strazmiejska@umostrow.pl"
   },
   "Marki": {
     "address": [
@@ -2131,7 +2130,7 @@
       "ul. Regis 2",
       "32-700 Bochnia"
     ],
-    "email": "straz@straznicy.bochnia.pl"
+    "email": "straz@um.bochnia.pl"
   },
   "Nowy Dwór Gdański": {
     "address": [
@@ -2327,7 +2326,7 @@
       "ul. Mickiewicza 24",
       "14-100 Ostróda"
     ],
-    "email": "um@um.ostroda.pl"
+    "email": "sm@um.ostroda.pl"
   },
   "Niemodlin": {
     "address": [
@@ -2335,7 +2334,7 @@
       "ul. Bohaterów Powstań Śląskich 37",
       "49-100 Niemodlin"
     ],
-    "email": "dzielnicowy.niemodlin53@op.policja.gov.pl"
+    "email": "sm@niemodlin.pl"
   },
   "Zambrów": {
     "address": [
@@ -2359,7 +2358,7 @@
       "ul. Mickiewicza 10",
       "63-100 Śrem"
     ],
-    "email": "dyzurny@strazmiejska.srem.pl"
+    "email": "strazmiejska@srem.pl"
   },
   "Jędrzejów": {
     "address": [
@@ -2443,7 +2442,7 @@
       "ul. Nowa 2",
       "64-610 Rogoźno"
     ],
-    "email": "straz.miejska@rogozno.pl"
+    "email": "strazmiejska@rogozno.pl"
   },
   "Kudowa-Zdrój": {
     "address": [
@@ -2874,7 +2873,7 @@
       "ul. Kutrzeby 3",
       "62-095 Murowana Goślina"
     ],
-    "email": "dyzurny.murowana-goslina@po.policja.gov.pl"
+    "email": "r.krajewski@murowana-goslina.pl"
   },
   "gmina Murowana Goślina": {
     "parent": "Murowana Goślina"
@@ -3070,7 +3069,7 @@
       "pl. Ratuszowy 1b",
       "43-170 Łaziska Górne"
     ],
-    "email": "laziska-gorne@mikolow.ka.policja.gov.pl"
+    "email": "strazmiejska@laziska.pl"
   },
   "Żary": {
     "address": [
@@ -3078,7 +3077,7 @@
       "ul. Rynek 1-5",
       "68-200 Żary"
     ],
-    "email": "miasto@um.zary.pl"
+    "email": "straz.miejska@um.zary.pl"
   },
   "Puszczykowo": {
     "address": [
@@ -3309,7 +3308,7 @@
       "ul. Sądowa 23",
       "46-300 Olesno"
     ],
-    "email": "krzysztof.latocha@olesno.pl"
+    "email": "gmina@olesno.pl"
   },
   "Stryków": {
     "address": [
@@ -3349,7 +3348,7 @@
       "ul. Niepodległości 5",
       "44-190 Knurów"
     ],
-    "email": "sm@knurow.pl,"
+    "email": "sm@knurow.pl"
   },
   "Lędziny": {
     "address": [
@@ -3437,7 +3436,7 @@
       "ul. Staszica 35",
       "06-100 Pułtusk"
     ],
-    "email": "um@pultusk.pl"
+    "email": "ksm@pultusk.pl"
   },
   "Wąbrzeźno": {
     "address": [
@@ -3573,7 +3572,7 @@
       "ul. Kraszewskiego 7",
       "33-380 Krynica-Zdrój"
     ],
-    "email": "krynica@umkrynica.pl"
+    "email": "strazmiejska@umkrynica.pl"
   },
   "gmina Krokowa": {
     "address": [
@@ -3613,7 +3612,7 @@
       "ul. Portowa 24",
       "84-140 Jastarnia"
     ],
-    "email": "sp-upo@jastarnia.pl"
+    "email": "strazmiejska@jastarnia.pl"
   },
   "gmina Grabówka": {
     "address": [
