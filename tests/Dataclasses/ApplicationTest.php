@@ -211,7 +211,7 @@ class ApplicationTest extends TestCase
         $this->assertEquals('szczecin', $app->smCity);
         $smData = $app->guessSMData();
         $this->assertInstanceOf(\SM::class, $smData);
-        $this->assertEquals('SM Szczecin', $smData->getShortName());
+        $this->assertEquals('SM w Szczecinie', $smData->getShortName());
         $this->assertFalse($smData->hasAPI());
         $this->assertTrue($smData->automated());
         $this->assertFalse($smData->isPolice());
