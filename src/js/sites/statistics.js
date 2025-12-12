@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chart: {
       type: "areaspline",
       backgroundColor: "transparent",
+      reflow: true,
       events: {
         load() {
           const chart = this;
@@ -119,6 +120,18 @@ document.addEventListener("DOMContentLoaded", function () {
     tooltip: {
       shared: true,
       crosshairs: true
+    },
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 560
+        },
+        chartOptions: {
+          chart: {
+            height: 250
+          }
+        }
+      }]
     }
   });
 
@@ -134,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
       type: "column",
       plotBackgroundColor: null,
       backgroundColor: "transparent",
+      reflow: true,
       events: {
         load() {
           const chart = this;
@@ -176,6 +190,18 @@ document.addEventListener("DOMContentLoaded", function () {
     tooltip: {
       shared: true,
       crosshairs: true
+    },
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 560
+        },
+        chartOptions: {
+          chart: {
+            height: 250
+          }
+        }
+      }]
     }
   });
 
@@ -209,6 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
       plotShadow: false,
       type: "pie",
       backgroundColor: "transparent",
+      reflow: true,
       events: {
         load() {
           const chart = this;
@@ -244,6 +271,23 @@ document.addEventListener("DOMContentLoaded", function () {
         center: ["50%", "75%"],
         size: "110%"
       }
+    },
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 560
+        },
+        chartOptions: {
+          chart: {
+            height: 250
+          },
+          plotOptions: {
+            pie: {
+              size: "100%"
+            }
+          }
+        }
+      }]
     }
   });
 });
