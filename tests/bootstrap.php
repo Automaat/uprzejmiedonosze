@@ -11,6 +11,7 @@ $GLOBALS['STOP_AGRESJI'] = $STOP_AGRESJI;
 $GLOBALS['CATEGORIES'] = $CATEGORIES;
 $GLOBALS['cache'] = $cache;
 $_SERVER['HTTP_USER_AGENT'] = 'PHPUnit';
+$_SESSION = [];
 
 function exception_error_handler(int $errno, string $errstr, string $errfile = null, int $errline) {
     throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);

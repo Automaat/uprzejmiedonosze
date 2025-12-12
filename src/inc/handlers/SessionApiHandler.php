@@ -21,69 +21,6 @@ class SessionApiHandler extends AbstractHandler {
             throw new HttpNotFoundException($request, "Nie posiadasz zgłoszenia o ID {$app->id}");
     }
 
-    /**
-     * Validates user session - BACKEND ONLY endpoint
-     * Security measures:
-     * 1. Requires X-API-Key header for authentication
-     * 2. Session ID passed via X-Session-ID header (not in body)
-     * 3. No CORS headers (SecureApiMiddleware)
-     * 
-     * @SuppressWarnings(PHPMD.Superglobals)
-     */
-    public function validateUser(Request $request, Response $response, $args): Response {
-        $apiKey = $request->getHeaderLine('X-API-Key');
-        if (empty($apiKey) || $apiKey !== BACKEND_API_KEY) {
-            throw new HttpForbiddenException($request, "Invalid or missing API key");
-        }
-        
-        $sessionId = $request->getHeaderLine('X-Session-ID');
-        if (empty($sessionId)) {
-            throw new MissingParamException("X-Session-ID header");
-        }
-        
-        $currentSessionId = session_id();
-        
-        session_write_close();
-        
-        try {
-            session_id($sessionId);
-            session_start();
-            
-            $isValid = isset($_SESSION['user_id'])
-                && isset($_SESSION['user_email'])
-                && stripos($_SESSION['user_email'], '@') !== false;
-            
-            if ($isValid) {
-                try {
-                    $user = \user\get($_SESSION['user_email']);
-                    $isRegistered = $user->isRegistered();
-                } catch (Exception) {
-                    $isRegistered = false;
-                }
-                $userData = [
-                    'valid' => true,
-                    'user_id' => $_SESSION['user_id'],
-                    'user_email' => $_SESSION['user_email'],
-                    'user_name' => $_SESSION['user_name'] ?? '',
-                    'user_picture' => $_SESSION['user_picture'] ?? '',
-                    'isRegistered' => $isRegistered
-                ];
-            } else {
-                $userData = ['valid' => false];
-            }
-            
-            session_write_close();
-            
-        } finally {
-            if ($currentSessionId) {
-                session_id($currentSessionId);
-                session_start();
-            }
-        }
-        
-        return $this->renderJson($response, $userData);
-    }
-
     public function deleteImage(Request $request, Response $response, $args): Response {
         $appId = $args['appId'];
         $imageId = $args['image'];
