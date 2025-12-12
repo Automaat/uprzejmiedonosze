@@ -372,9 +372,6 @@ class ApiAiHandler extends \AbstractHandler {
         $intro  = "# To jest kopia pisma przygotowanego dla Ciebie za pomocą Kreatora Pism Uprzejmie Donoszę.\n";
         $intro .= "# Wysyłami Ci ją na wszelki wypadek – jeśli nie udało się wysłać wiadomości bezpośrednio z kreatora.\n";
         $intro .= "# Nie przesyłaj tej wiadomości za pomocą funkcji „forward”. Skopiuj treść i napisz nową wiadomość.\n";
-        $intro .= "\n";
-        $intro .= "# PS. Jeśli dostaniesz odpowiedź od polityka (niestety pewnie w duchu „weź się odczep!”\n";
-        $intro .= "# to napisz do mnie – pomogę napisać polemikę lub skargę.\n";
         $text = "$intro\n\n$text";
 
         $message = (new Email());

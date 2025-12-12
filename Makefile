@@ -5,6 +5,10 @@ HOSTING              := nieradka.net
 CYPRESS              := ./node_modules/.bin/cypress
 CYPRESS_KEY          := 8a0db00f-b36c-4530-9c82-422b0be32b5b
 UNAME                := $(shell uname -s)
+ifeq (,$(shell which mise))
+$(error "mise - https://github.com/jdx/mise - not found. Please install it.")
+endif
+MISE                 := $(shell which mise)
 
 # dirs and files
 EXPORT               := export
@@ -285,6 +289,11 @@ confirmation:
 .PHONY: npm-install
 npm-install:
 	@npm install
+
+.PHONY: install
+install: npm-install ; @echo 'Installing all dependencies'
+	@$(MISE) install
+	@composer install
 
 .PHONY: update-libs
 update-libs: ; @echo 'Updating PHP and JS libraries'
