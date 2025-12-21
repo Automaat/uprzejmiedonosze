@@ -98,5 +98,6 @@ abstract class CityAPI {
 require(__DIR__ . '/Poznan.php');
 require(__DIR__ . '/Mail.php');
 require(__DIR__ . '/MailGun.php');
+require(__DIR__ . '/MailGunAlter.php');
 
 ?>

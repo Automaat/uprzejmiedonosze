@@ -15,6 +15,12 @@ use \JSONObject as JSONObject;
  */
 class MailGun extends CityAPI {
     public bool $withXls = false;
+    public bool $alternate = false;
+
+    public function __construct(bool $alternate = false) {
+        $this->alternate = $alternate;
+    }
+
 
     /**
      * @SuppressWarnings(PHPMD.ShortVariable)
@@ -31,7 +37,12 @@ class MailGun extends CityAPI {
         $subject = $application->getEmailSubject();
 
         $message = (new Email());
-        $message->from(new Address(MAILER_FROM, 'uprzejmiedonosze.net'));
+        if ($this->alternate) {
+            $message->from(new Address(MAILER_FROM_ALTER, 'uprzejmiedonosze.net'));
+        } else {
+            $message->from(new Address(MAILER_FROM, 'uprzejmiedonosze.net'));
+        }
+        
         $message->to($to);
         $message->subject($subject);
         $message->cc(new Address($application->email, $application->user->name));
@@ -70,7 +81,11 @@ class MailGun extends CityAPI {
             $message->attachFromPath($fileatt, $fileattname);
 
             if (!isDev()) {
-                $transport = Transport::fromDsn(MAILER_DSN);
+                if ($this->alternate) {
+                    $transport = Transport::fromDsn(MAILER_DSN_ALTER);
+                } else {
+                    $transport = Transport::fromDsn(MAILER_DSN);
+                }
                 $mailer = new Mailer($transport);    
                 $mailer->send($message);    
             } else {
